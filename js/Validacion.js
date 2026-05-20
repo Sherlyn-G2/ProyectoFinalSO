@@ -11,7 +11,7 @@ document.getElementById("registerForm")?.addEventListener("submit", e => {
   localStorage.setItem("user", JSON.stringify({nombre,apellido,correo,contraseña}));
 
   alert("Usuario registrado correctamente");
-  window.location.href = "Login.html";
+  window.location.href = "index.html";
 });
 
 // Login
