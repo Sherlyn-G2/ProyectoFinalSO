@@ -1,0 +1,304 @@
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #a2c2e2, #e0f0ff); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.register-box input{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px ;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.register-box
+{
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    text-align: center;
+}
+
+.register-box h2
+{
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+.register-box button
+{
+    width: 100%;
+    padding: 10px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.register-box button:hover
+{
+    background-color: #005f8a;
+}
+.login-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 380px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+  background-color: #005f8a;
+}
+
+.register-link {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.register-link a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.login-link
+{
+    margin-top: 15px;
+    font-size: 13px;
+}
+.login-link a
+{
+    color: #0077b6;
+    text-decoration: none;
+}
+.login-link a:hover
+{
+    text-decoration: underline;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif, Verdana, sans-serif;
+    background: linear-gradient(135deg, #cce0ff, #e6f2ff);
+    margin: 0;
+}
+.content
+{
+    margin-left: 80px;
+    margin-right: 100PX;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 30px;
+    max-width: 900PX;
+    height: 80vh;
+    background-color: rgba(242, 242, 242, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: #222;
+   
+    line-height: 1.6;
+}
+html{
+    scroll-padding-top: 0px;
+}
+.content h2
+{
+    text-align: center;
+    color: #003366;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.content p{
+    font-size: 16px;
+    text-align: justify;
+    margin: 0 auto;
+    max-width: 900px;
+}
+.content p::before
+{
+    content: "";
+}
+
+table
+{
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+th
+{
+    background-color: #003366;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+td
+{
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+tr:hover td{
+    background-color: #e0f0ff;
+}
+.contenido
+{
+    animation: fadeIn 0.06s ease-in-out;
+}
+
+.sider
+{
+    width: 250px;
+    background: linear-gradient(180deg, #6305fb, #2a20a8);
+    color: #181212;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 25px 20px;
+    overflow-y: auto;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #000279;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul > li > a {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #e0e0ff;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 15px 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.sidebar ul li {
+  margin: 10px 0;
+  transition: transform 0.2s ease;
+}
+
+.sidebar ul li:hover {
+  transform: translateX(5px);
+}
+
+
+.sidebar ul li a {
+  color: #533fae;
+  text-decoration: none;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.sidebar ul li a:hover {
+  background-color: #fff;
+  color: #000000;
+  font-weight: bold;
+}
+
+
+.submenu {
+  display: none;
+  margin-left: 15px;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  padding-left: 10px;
+}
+
+.submenu li a {
+  font-size: 14px;
+  color: #ffe4c4;
+}
+
+.submenu li a:hover {
+  color: #4c48c6;
+  background-color: #21212d;
+}
+
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.imagen
+{
+  display:block;
+  margin:auto;
+}
+
+

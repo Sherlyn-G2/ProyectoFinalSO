@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/funciones.js"></script>
+<script>
+    window.onload = function()
+    {
+        let sesion = localStorage.getItem("sesionActiva");
+        if(sesion != "true")
+    {
+        window.location.href = "Login.html";
+    }
+    }
+</script>
+   </head>  
+   <body>
+   
+    <div class="sidebar">
+        <h2>MENU</h2>
+        <ul>
+            <li>
+                <a href="#" onclick="toggleSubmenu('unidad1')">INTRODUCCION A LOS SISTEMAS OPERATIVOS </a>
+                <ul id="unidad1" class="submenu">
+                    <li><a href="#definicion" onclick="mostrarTema('definicion')">Definición</a></li>
+                    <li><a href="#funciones" onclick="mostrarTema('funciones')">Funciones y características </a></li>
+                    <li><a href="#evolucion" onclick="mostrarTema('evolucion')">Evolución histórica </a></li>
+                    <li><a href="#clasificacion" onclick="mostrarTema('clasificacion')">Clasificación</a></li>
+                    <li><a href="#estructura" onclick="mostrarTema('estructura')">Estructura: niveles o estratos de diseño</a></li>
+                    <li><a href="#nucleo" onclick="mostrarTema('nucleo')">Núcleo</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSubmenu('unidad2')">ADMINISTRACION DE PROCESOS Y DEL PROCESADOR </a>
+                <ul id="unidad2" class="submenu">
+                    <li><a href="#concepto" onclick="mostrarTema('concepto')">Concepto de proceso</a></li>
+                    <li><a href="#estados" onclick="mostrarTema('estados')">Estados y transiciones de los procesos</a></li>
+                    <li><a href="#procesos" onclick="mostrarTema('procesos')"> Procesos ligeros: Hilos o hebras</a></li>
+                    <li><a href="#concurrencia" onclick="mostrarTema('concurrencia')">Concurrencia y secuencialidad </a></li>
+                    <li><a href="#niveles" onclick="mostrarTema('niveles')"> Niveles, objetivos y criterios de planificación</a></li>
+                    <li><a href="#tecnicas" onclick="mostrarTema('tecnicas')">Técnicas de administración del planificador</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSubmenu('unidad3')">ADMINISTRACION DE MEMORIA</a>
+                <ul id="unidad3" class="submenu">
+                    <li><a href="#politica" onclick="mostrarTema('politica')"> Política y filosofía</a></li>
+                    <li><a href="#memoria" onclick="mostrarTema('memoria')">Memoria real</a> </li>
+                    <li><a href="#organizacion" onclick="mostrarTema('orgnizacion')">Organización de memoria virtual</a></li>
+                    <li><a href="#administracion" onclick="mostrarTema('administracion')">Administración de memoria virtual</a></li>
+               </ul>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSubmenu('unidad4')">ADMINISTRACION DE E/S</a>
+                <ul id="unidad4" class="submenu">
+                    <li><a href="#dispositivos" onclick="mostrarTema('dispositivos')"> Dispositivos y manejadores de 
+dispositivos</a></li>
+                    <li><a href="#mecanismos" onclick="mostrarTema('mecanismos')">Mecanismos y funciones de los manejadores de 
+dispositivos</a> </li>
+                    <li><a href="#estdatos" onclick="mostrarTema('estdatos')"> Estructuras de datos para manejo de dispositivos</a></li>
+                    <li><a href="#opes" onclick="mostrarTema('opes')">Operaciones de Entrada /salida</a></li>
+               </ul>
+            </li>
+            <li>
+                <a href="#" onclick="toggleSubmenu('unidad5')">SISTEMAS DE ARCHIVOS</a>
+                <ul id="unidad5" class="submenu">
+                    <li><a href="#concepto2" onclick="mostrarTema('concepto2')">Concepto</a></li>
+                    <li><a href="#nocion" onclick="mostrarTema('nocion')"> Noción de archivo real y virtual</a></li>
+                    <li><a href="#componentes" onclick="mostrarTema('componentes')">Componentes de un sistema de archivos</a></li>
+                    <li><a href="#logicayfisica" onclick="mostrarTema('logicayfisica')">Organización lógica y física</a></li>
+                    <li><a href="#acceso" onclick="mostrarTema('acceso')">Mecanismos de acceso a los archivos</a></li>
+                    <li><a href="#manejo" onclick="mostrarTema('manejo')">Manejo de espacio en memoria secundaria </a></li>
+                    <li><a href="#jerarquico" onclick="mostrarTema('jerarquico')"> Modelo jerárquico </a></li>
+                    <li><a href="#fallas" onclick="mostrarTema('fallas')">Mecanismos de recuperación en caso de falla</a></li>
+                </ul>
+            </li>
+             <li>
+                <a href="#" onclick="toggleSubmenu('unidad6')">PROTECCION Y SEGURIDAD </a>
+                <ul id="unidad6" class="submenu">
+                    <li><a href="#concepto3" onclick="mostrarTema('concepto3')">Concepto y objetivos de protección y seguridad</a></li>
+                    <li><a href="#seguridad" onclick="mostrarTema('seguridad')"> Clasificación aplicada a la seguridad</a></li>
+                    <li><a href="#sproteccion" onclick="mostrarTema('sproteccion')">Funciones del sistema de protección</a></li>
+                    <li><a href="#implantacion" onclick="mostrarTema('implantacion')">Implantación de matrices de acceso</a></li>
+                    <li><a href="#proteccion" onclick="mostrarTema('proteccion')">Protección basada en el lenguaje</a></li>
+                    <li><a href="#validacion" onclick="mostrarTema('validacion')"> Validación y amenazas al sistema</a></li>
+                    <li><a href="#cifrado" onclick="mostrarTema('cifrado')">Cifrado </a></li>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+  
+    </body>
+    <div class="content">
+    <div id="definicion" class="contenido">
+        <h2>DEFINICION</h2>
+        <form id="test1">
+        <P>Un sistema operativo (SO) es el conjunto de programas que actúan como intermediarios entre el usuario y el hardware de la computadora.<br>
+•	Permite que los recursos físicos (CPU, memoria, dispositivos) sean utilizados de manera eficiente.<br>
+•	Proporciona una interfaz para que los usuarios ejecuten aplicaciones sin necesidad de interactuar directamente con el hardware.<br>
+•	Se considera el “administrador” del sistema, ya que controla y coordina el uso de los recursos.<br>
+Ejemplo práctico: <br>
+Cuando enciendes una computadora y puedes abrir programas como Word o Google Chrome, el sistema operativo es quien administra todo para que funcionen correctamente.
+</P>
+<img src="img/tema1.png" alt="Sistemas operativos." class="imagen">
+<p>1.¿Que es un sistema operativo?</p>
+        <label> <input type="radio" name="p1" value="a">Un programa que actua como intermediario entre usuario y hardware</label>
+        <label> <input type="radio" name="p1" value="b">Un dispositivo fisico de almacenamiento</label>
+        <label> <input type="radio" name="p1" value="c">Una aplicacion</label>
+
+        <p>2.¿Por qué se considera al sistema operativo el "administrador" del sistema?</p>
+        <label> <input type="radio" name="p2" value="a">Por que controla y coordina el uso de los recursos de la computadora</label>
+        <label> <input type="radio" name="p2" value="b">Por que almacena archivos multimedia</label>
+        <label> <input type="radio" name="p2" value="c">Porque sirve'unicamente para diseñas aplicaciones</label>
+        
+        <p>3.¿Cuál es una característica de sistema operativo?</p>
+        <label> <input type="radio" name="p3" value="a">Multiusuario: permitir que varios trabajen en el mismo sistema</label>
+        <label> <input type="radio" name="p3" value="b">Solo ejecutar un programa a la vez</label>
+        <label> <input type="radio" name="p3" value="c">No interactuar con el usuario</label>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado1"></h3>
+    </div>
+    <div id="funciones" class="contenido">
+        <h2>FUNCIONES Y CARACTERISTICAS</h2>
+        <form id="test2">
+        <table border="1">
+            <tr>
+                <th>Funciones</th>
+                <th>Características</th>
+            </tr>
+            <tr>
+                <td>Gestión de procesos:controla la ejecución de programas, asigna tiempo de CPU y coordina multitarea.</td>
+                <td>Multitarea: ejecutar varios programas al mismo tiempo.</td>
+            </tr>
+            <tr>
+                <td>Gestión de memoria: administra la RAM, asigna espacio a procesos y evita conflictos</td>
+                <td>Multiusuario: permitir que varios usuarios trabajen en el mismo sistema.</td>
+            </tr>
+            <tr>
+                <td>Gestión de archivos: organiza la información en discos, permite crear, leer, escribir y borrar archivos.</td>
+                <td>Portabilidad: capacidad de adaptarse a diferentes arquitecturas de hardware.</td>
+            </tr>
+            <tr>
+                <td>Seguridad: protege datos y recursos frente a accesos no autorizados</td>
+                <td>Interactividad: ofrecer interfaces gráficas (GUI) o de línea de comandos (CLI).</td>
+            </tr>
+        </table>
+        Ejemplo práctico: <br>
+Windows administra la memoria RAM, controla el teclado y permite guardar archivos mientras utilizas varias aplicaciones al mismo tiempo.
+        <p>1.¿Que función realiza la gestión de archivos en un sistema operativo?</p>
+        <link rel="stylesheet" href="https://misistema-operativo.blogspot.com/p/105.html">
+        <label> <input type="radio" name="p1" value="a">Que oraniza la información en discos y permite crear, leer, escribir y borrar archivos.</label>
+        <label> <input type="radio" name="p1" value="b">Controla la ejecución de programas y asigna tiempo de CPU</label>
+        <label> <input type="radio" name="p1" value="c">Protege datos frente a accesos no autorizados</label>
+
+        <p>2.¿Qué característica describe la portabilidad de un sistema operativo?</p>
+        <label> <input type="radio" name="p2" value="a">Capacidad de adaptarse a diferentes arquitecturas de hardware</label>
+        <label> <input type="radio" name="p2" value="b">Ejecutar varios programas al mismo tiempo</label>
+        <label> <input type="radio" name="p2" value="c">Permitir que varios usuarios trabajem en el mismo sistema</label>
+        
+        <p>3.¿Cuál es la función principal de la seguridad en un sistema operativo?</p>
+        <label> <input type="radio" name="p3" value="a">Protege datos y recursos frente a accesos no autorizados</label>
+        <label> <input type="radio" name="p3" value="b">Administrar la RAM y asignar espacio a procesos</label>
+        <label> <input type="radio" name="p3" value="c">Ofrecer interfaces gráficas o de línea de comandos</label>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado2"></h3>
+    </div>
+    
+    <div id="evolucion" class="contenido">
+        <h2>EVOLUCION DE LOS SISTEMAS OPERATIVOS</h2>
+        <form id="test3">
+        <p>Década de 1950: sistemas por lotes (Batch Processing). Los programas se ejecutaban uno tras otro sin interacción del usuario.<br>
+Década de 1960: sistemas multiprogramados y de tiempo compartido. Se introdujo la multitarea y varios usuarios podían compartir la máquina.<br>
+Década de 1970–80: aparición de sistemas interactivos y primeras interfaces gráficas.<br>
+Década de 1990: popularización de sistemas operativos comerciales como Windows y Linux.<br>
+Actualidad: sistemas distribuidos, móviles (Android, iOS), en la nube y especializados en tiempo real (RTOS).<br>
+</p>
+<img src="img/tema2.jpeg" class="imagen">
+<link rel="stylesheet" href="https://www.wikiciencias.net/evolucion-de-los-sistemas-operativos-desde-la-generacion-cero-hasta-la-actualidad/">
+<p>1.¿Que tipo de sistema operativo predominaban en la década de los 1950?</p>
+        <label> <input type="radio" name="p1" value="a">Sistemas distribuidos en la nube</label>
+        <label> <input type="radio" name="p1" value="b">Sistemas por lotes</label>
+        <label> <input type="radio" name="p1" value="c">Sistemas móviles como Android e iOS</label>
+
+        <p>2.¿Qué innovación apareció en la década de 1950?</p>
+        <label> <input type="radio" name="p2" value="a">Interfaces gráficas de usuario (GUI)</label>
+        <label> <input type="radio" name="p2" value="b">Sistemas multiprogramados y de tiempo compartido</label>
+        <label> <input type="radio" name="p2" value="c">Sistemas operativos móviles</label>
+        
+        <p>3.¿Qué caracteristica define la evolución actual de los sistemas operativos?</p>
+        <label> <input type="radio" name="p3" value="a">Popularización de windows y Linux</label>
+        <label> <input type="radio" name="p3" value="b">Aparición de sistemas interactivos</label>
+        <label> <input type="radio" name="p3" value="c">Usoa de sistemas distribuidos, móviles y en la nube</label>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado3"></h3>
+    </div>
+    <div id="clasificacion" class="contenido">
+        <h2>CLASIFICACIÓN</h2>
+        <form id="test4">
+        <P>Los sistemas operativos pueden clasificarse de varias maneras, lo que nos ayuda a entender su uso y funcionamiento.<br>
+        <h3>Según la Administración de Tareas</h3><br>
+        En base a la administración de tareas, los sistemas operativos se dividen en dos categorías:<br>
+
+<b>Monotarea:</b> Soporta un solo proceso a la vez. Por ejemplo, algunos sistemas operativos diseñados para dispositivos embebidos que realizan una tarea específica.<br>
+<b>Multitarea:</b> Permite que varios procesos se ejecuten al mismo tiempo. Este tipo es común en sistemas operativos de uso general como Windows y Linux.<br>
+<h3>Según la Administración de Usuarios</h3><br>
+Los sistemas operativos también se pueden clasificar según la administración de usuarios. Aquí tenemos:<br>
+
+<b>Monousuario:</b> Diseñado para un solo usuario en cada momento, aunque puede cambiar de usuario. Ejemplos incluyen algunos sistemas operativos de dispositivos móviles.<br>
+<b>Multiusuario:</b> Permite que múltiples usuarios accedan a la computadora simultáneamente, como en sistemas de servidores.<br>
+<h3>Según el Manejo de Recursos</h3><br>
+En cuanto al manejo de recursos, podemos distinguir entre:<br>
+
+<b>Centrales:</b> Todos los recursos son gestionados por un solo sistema. Esto es típico de computadoras personales donde los recursos se gestionan internamente.<br>
+<b>Distribuidos:</b> Varios sistemas trabajan en conjunto para gestionar problemas y compartir recursos. Esto se ve comúnmente en redes corporativas.
+<br>Ejemplo práctico: <br>
+Android es un sistema operativo móvil, Linux es multiusuario y Windows puede trabajar en tiempo compartido.
+</P>
+<link rel="stylesheet" href="https://es.slideshare.net/slideshow/tcnicas-de-administracin-del-planificador/60511316">
+<p>1.¿Que caracteriza a un sistema operativo monotarea?</p>
+        <label> <input type="radio" name="p1" value="a">Permite que varios procesos se ejecuten al mismo tiempo</label>
+        <label> <input type="radio" name="p1" value="b">Soportan un solo proceso a la vez</label>
+        <label> <input type="radio" name="p1" value="c">Permite que múltiples usuarios accedan simultáneamente</label>
+
+        <p>2.¿Qué define a un sistema operativo multiusuario?</p>
+        <label> <input type="radio" name="p2" value="a">Diseñado para un solo usuario en cada momento</label>
+        <label> <input type="radio" name="p2" value="b">Permite que  múltiples usuarios accedan e la computadora simúltaneamente</label>
+        <label> <input type="radio" name="p2" value="c">Gestiona todos los recursos de manera centralizada</label>
+        
+        <p>3.¿Qué diferencia a un sistema distribuido de uno centralizado?</p>
+        <label> <input type="radio" name="p3" value="a">En el distribuido, varios sistemas trabajan en conjunto para compartir recursos</label>
+        <label> <input type="radio" name="p3" value="b">En el centralizado, varios usuarios acceden simultáneamente</label>
+        <label> <input type="radio" name="p3" value="c">En el distribuido, solo se ejecuta un proceso a la vez</label>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado4"></h3>
+    </div>
+    <div id="estructura" class="contenido">
+        <h2>Estructura: niveles o estratos de diseño</h2><br>
+        <form id="test5">
+        <p>A medida que fueron creciendo las necesidades de los usuarios y se perfeccionaron los sistemas, se hizo necesaria una mayor organización del software del sistema operativo, donde una parte del sistema contenía subpartes y esto organizado en forma de niveles. <br>
+Es una estructura jerárquica, con mayor organización del software del sistema operativo. <br>
+El sistema operativo se divide en partes o niveles, cada uno perfectamente definido y con un claro interface (comunicación) con el resto de los elementos. <br>
+1. <b>Núcleo (Kernell)</b>
+Es la parte primordial del sistema operativo.  El núcleo o centro del sistema operativo administra todo el sistema, sincroniza todos los procesos.  A nivel de núcleo solo se trabaja con procesos. <br>
+2.   <b>Gestión de entrada/salida</b> 
+El sistema operativo administra los dispositivos externos a través de sus controladores. <br>
+3. <b> Gestión de memoria</b>
+El sistema operativo administra todos los aspectos relativos a memoria real y memoria virtual. <br>
+4.  <b>Sistemas de archivos</b>
+El sistema operativo se ocupa de administrar los archivos del usuario a través de una estructura de directorios con algún tipo de organización. <br>
+5.  <b>Intérprete de comandos</b>
+
+Es un mecanismo de comunicación entre los usuarios y el sistema.  Lee las instrucciones del usuario y hace que se ejecuten las funciones del sistema solicitadas. <br>
+<br>Cuando imprimes un documento, la aplicación envía la orden al sistema operativo y este la comunica al hardware de la impresora mediante distintos niveles internos. <br>
+</p>
+<img src="img/tema3.png" class="imagen">
+<p>1.¿Cuál es la función principal del núcleo (kernel) en un sistema operativo</p>
+        <label> <input type="radio" name="p1" value="a">Administrar todo el sistema y sincronizar procesos</label> <br>
+        <label> <input type="radio" name="p1" value="b">Organizar la información en discos</label> <br>
+        <label> <input type="radio" name="p1" value="c">Ofrecer interfaces gráficas al usuario</label> <br>
+
+        <p>2.¿Qué nivel del sistema operativo se encarga de administrar los dispositivos externos?</p>
+        <label> <input type="radio" name="p2" value="a">Interprete de comandos</label> <br>
+        <label> <input type="radio" name="p2" value="b">Gestión de entrada/salida</label> <br>
+        <label> <input type="radio" name="p2" value="c">Gestión de memoria</label> <br>
+        
+        <p>3.¿Qué papel cumple el intérprete de comandos dentro del sistema operativo?</p>
+        <label> <input type="radio" name="p3" value="a">Es un mecanismo de comunicación entre el usuario y el sistema</label> <br>
+        <label> <input type="radio" name="p3" value="b">Administra la memoria real y virtual</label> <br>
+        <label> <input type="radio" name="p3" value="c">Sincroniza los procesos en el núcleo</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado5"></h3>
+    </div>
+    <div id="nucleo" class="contenido">
+        <h2>NUCLEO</h2> <br>
+        <form id="test6">
+        <p>En informática, un núcleo o kernel (de la raíz germánica Kern, núcleo, hueso) es un software que constituye una parte fundamental del sistema operativo, 
+            y se define como la parte que se ejecuta en modo privilegiado (conocido también como modo núcleo). Es el principal responsable de facilitar a los distintos
+             programas acceso seguro al hardware de la computadora o en forma básica, es el encargado de gestionar recursos, a través de servicios de llamada al sistema.
+              Como hay muchos programas y el acceso al hardware es limitado, también se encarga de decidir qué programa podrá usar un dispositivo de hardware y durante
+               cuánto tiempo, lo que se conoce como multiplexado. Acceder al hardware directamente puede ser realmente complejo, por lo que los núcleos suelen implementar
+                una serie de abstracciones del hardware. Esto permite esconder la complejidad, y proporcionar una interfaz limpia y uniforme al hardware subyacente, lo que
+                 facilita su uso al programador. <br>
+                Ejemplo práctico: <br>
+Cuando abres un videojuego, el núcleo del sistema operativo administra memoria y procesador para que el juego funcione correctamente. <br></p>
+<img src="img/tema4.png" class="imagen">
+                 <p>1.¿En qué modo se ejecuta el núcleo de un sistema operativo</p>
+        <label> <input type="radio" name="p1" value="a">En modo gráfico</label> <br>
+        <label> <input type="radio" name="p1" value="b">En modo privilegiado</label> <br>
+        <label> <input type="radio" name="p1" value="c">En modo usuario</label> <br>
+
+        <p>2.¿Cuál es una de las funciones principaes del núcleo?</p>
+        <label> <input type="radio" name="p2" value="a">Facilitar acceso seguro al hardware para los programas</label> <br>
+        <label> <input type="radio" name="p2" value="b">Diseñar páginas web</label> <br>
+        <label> <input type="radio" name="p2" value="c">Reproducir archivos de multimedia</label> <br>
+        
+        <p>3.¿Qué técnica utiliza el núcleo para decir qué programa usa un dispositivos y por cuánto tiempo?</p>
+        <label> <input type="radio" name="p3" value="a">multiplexado</label> <br>
+        <label> <input type="radio" name="p3" value="b">Virtualización</label> <br>
+        <label> <input type="radio" name="p3" value="c">Compilación</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado6"></h3>
+    </div>
+    <div id="concepto" class="contenido">
+        <h2>PROCESOS</h2> <br>
+        <form id="test7">
+        <p>Un proceso en sistemas operativos es un programa o conjunto de instrucciones que se ejecutan en un sistema operativo. <br>
+        Es una unidad de trabajo que se ejecuta de forma independiente y que utiliza los recursos del sistema, como la memoria, el procesador y los dispositivos de entrada/salida. <br>
+
+Un proceso se puede considerar como una instancia de un programa en ejecución. <br>
+
+Cada proceso tiene su propio espacio de direcciones, que es una área de memoria que contiene el código del programa, los datos y la pila de llamadas. <br>
+
+Cada proceso también tiene su propio conjunto de registros, que son una parte del procesador que almacena los valores de las variables. <br>
+
+Los procesos pueden ser de dos tipos: procesos de usuario y procesos de sistema. <br>
+
+Los procesos de usuario son programas que se ejecutan en el espacio de usuario, mientras que los procesos de sistema son programas que se ejecutan en el espacio de sistema. <br>
+
+Los procesos de sistema son los que manejan las operaciones del sistema, como la gestión de memoria o la gestión de archivos. <br>
+En un sistema operativo, los procesos se crean y se eliminan dinámicamente según sea necesario. <br>
+ <br>Ejemplo práctico: <br>
+Cuando abres Spotify, el sistema operativo crea un proceso para ejecutar la aplicación. <br>
+</p>
+<img src="img/tema5.png" class="imagen">
+<link rel="stylesheet" href="https://concepto.de/sistema-operativo/">
+<p>1.¿Qué es un proceso en un sistema operativo</p>
+        <label> <input type="radio" name="p1" value="a">Una instancia de un programa en ejecución</label> <br>
+        <label> <input type="radio" name="p1" value="b">Un archivo almacenado en disco</label> <br>
+        <label> <input type="radio" name="p1" value="c">Un dispositivo de entrada/ salida</label> <br>
+
+        <p>2.¿Qué diferencia a un proceso de un usuario de un proceso del sistema?</p>
+        <label> <input type="radio" name="p2" value="a">El del usuario se ejecutan en el espacio del usuario, mientras que el del sistema se ejecutan en el espacio del sistema</label> <br>
+        <label> <input type="radio" name="p2" value="b">El del usuario admiistra la memoria y el del sistema organiza archivos</label> <br>
+        <label> <input type="radio" name="p2" value="c">El del usuario siempre se ejecuta en segundo plano</label> <br>
+        
+        <p>3.¿Qué contiene el espacio de direcciones de un proceso?</p>
+        <label> <input type="radio" name="p3" value="a">Código del programa, datos y pila de llamadas</label> <br>
+        <label> <input type="radio" name="p3" value="b">Solo los registros del procesador</label> <br>
+        <label> <input type="radio" name="p3" value="c">Exclusivamente los dispositivos de estrada/ salida</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado7"></h3>
+    </div>
+    <div id="estados" class="contenido">
+        <form id="test8">
+        <h2>ESTADOS Y TRANSICIONES DE PROCESOS</h2>
+        <p>Para que un programa pueda ser ejecutado, el sistema operativo crea un nuevo proceso, y el procesador ejecuta una tras otra las 
+            instrucciones del mismo. En un entorno de multiprogramación, el procesador intercalará la ejecución de instrucciones de varios 
+            programas que se encuentran en memoria. El sistema operativo es el responsable de determinar las pautas de intercalado y asignación
+             de recursos a cada proceso. <br>
+             <h3>Estados de un Proceso</h3>
+<b>En ejecución:</b> El procesador está ejecutando instrucciones del programa y tiene concedido el tiempo de uso de la UCP en un instante.
+<b>En espera o activo:</b> Un proceso está preparado para ser ejecutado, esperando su turno para utilizar su intervalo de tiempo y poner en funcionamiento sus instrucciones accediendo a los recursos del sistema.
+<b>Bloqueado:</b> El proceso está bloqueado debido a diversas causas.
+<h3>Transiciones entre Estados</h3>
+<b>Transición A:</b> Ocurre cuando un programa que está en ejecución necesita un dato para continuar ejecutándose.
+<b>Transición B:</b> Ocurre cuando un programa ha utilizado el tiempo asignado por la UCP para su ejecución y deja paso al siguiente proceso.
+<b>Transición C:</b> Ocurre cuando el proceso que está preparado pasa al proceso de ejecución.
+<b>Transición D:</b> Ocurre cuando el proceso pasa de estar bloqueado a estar preparado.
+      <br>Ejemplo práctico: <br>
+Un programa puede estar en ejecución mientras usa el procesador y luego pasar a espera cuando carga información desde internet. <br> 
+ </p> <img src="img/tema6.png" class="imagen">
+        <p>1.¿Qué significa que un proceso este en estado "bloqueado"?</p>
+        <label> <input type="radio" name="p1" value="a">Está ejecutando instrucciones en la CPU</label> <br>
+        <label> <input type="radio" name="p1" value="b">Está esperando su turno para usar la CPU</label> <br>
+        <label> <input type="radio" name="p1" value="c">Está detenido pr que necesita un recurso o evento externo</label> <br>
+
+        <p>2.¿Qué ocurre en la transición C?</p>
+        <label> <input type="radio" name="p2" value="a">El proceso listo pasa a ejecución</label> <br>
+        <label> <input type="radio" name="p2" value="b">El proceso boqueado pasa a listo</label> <br>
+        <label> <input type="radio" name="p2" value="c">El proceso en ejecución pasa a bloqueado</label> <br>
+        
+        <p>3.¿Cuál es la funcion de la transición A?</p>
+        <label> <input type="radio" name="p3" value="a">El proceso agota su tiempo de CPU</label> <br>
+        <label> <input type="radio" name="p3" value="b">El proceso en ejecución necesita un dato y se bloquea</label> <br>
+        <label> <input type="radio" name="p3" value="c">El proceso preparado recibe la CPU</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado8"></h3>
+    </div>
+    <div id="procesos" class="contenido">
+        <h2>PROCESOS LIGEROS: Hilos o hebras</h2>
+        <form id="test9">
+        <p>Un proceso ligero es un programa en ejecución (flujo deejecución) que comparte la imagen de memoria y otrasinformaciones con otros procesos 
+            ligeros. Un procesopuede contener un solo flujo de ejecución, como ocurre enlos procesos clásicos, o más de un flujo de 
+            ejecución(procesos ligeros). <br>
+            Todos los procesos ligeros de un mismo proceso comparten la información del mismo. Enconcreto, comparten: <br>
+            ●Espacio de memoria. <br>
+            ●Variables globales. <br>●Archivos abiertos. <br>
+            ●Procesos hijos. <br>
+            ●Temporizadores. <br>
+            ●Señales y semáforos. <br>
+            ●Contabilidad. <br>
+            <b>Características</b> <br>
+            ●Se comparten recursos. La compartición de la memoria permite a las hebras parescomunicarse sin usar ningún mecanismo de comunicación inter-proceso del SO. <br>
+            ●La conmutación de contexto es más rápida gracias al extenso compartir de recursos. <br>
+            ●No hay protección entre las hebras. Una hebra puede escribir en la pila de otra hebradel mismo proceso. <br>
+        Ejemplo práctico: <br>
+Un navegador puede usar un hilo para reproducir video y otro para cargar páginas web al mismo tiempo.</p>
+<img src="img/tema7.png" class="imagen">
+        <p>1.¿Qué comparten los procesos ligeros dentro de un mismo proceso?</p>
+        <label> <input type="radio" name="p1" value="a">Espacio de memoria, variables globales y archivos abiertos</label> <br>
+        <label> <input type="radio" name="p1" value="b">Solo la CPU</label> <br>
+        <label> <input type="radio" name="p1" value="c">Únicamente la pila de ejecución</label> <br>
+
+        <p>2.¿Cuál es una ventaja principal de los hilos frente a los procesos clásicos?</p>
+        <label> <input type="radio" name="p2" value="a">Mayor aislamiento entre tareas</label> <br>
+        <label> <input type="radio" name="p2" value="b">Conmutación de contexto más rápida</label> <br>
+        <label> <input type="radio" name="p2" value="c">No comparten recursos</label> <br>
+        
+        <p>3.¿Qué riesgo existe al usar hilos dentro de un mismo proceso?</p>
+        <label> <input type="radio" name="p3" value="a">No pueden comunicarse entre sí</label> <br>
+        <label> <input type="radio" name="p3" value="b">Una hebra puede escribir en la pila de otra</label> <br>
+        <label> <input type="radio" name="p3" value="c">No permiten multitarea</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado9"></h3>
+    </div>
+    <div id="concurrencia" class="contenido">
+        <h2>CONCURRENCIA Y SECUENCIALIDAD</h2>
+        <form id="test10">
+        <p>Cuando un proceso se está llevando a cabo y se bloquea esperando por la E/S, en 
+la CPU se envía una instrucción para que se ejecute otro proceso (no de forma 
+paralela; sino intercalada), ayudando a hacer más eficiente el procesamiento de 
+programas, a esto se le llama <b>concurrencia</b>. <br>
+La      concurrencia      puede      presentarse      en      tres      contextos      diferentes: <br>
+•  <b>Varias aplicaciones:</b> La multiprogramación se creó para permitir que el tiempo de procesador de la máquina fuese compartido dinámicamente entre varios trabajos o aplicaciones activas. <br>
+•  <b>Aplicaciones estructuradas:</b> Como ampliación de los principios del diseño modular y la programación estructurada, algunas aplicaciones pueden implementarse eficazmente como un conjunto de procesos concurrentes. <br>
+•  <b>Estructura del sistema operativo:</b> Las mismas ventajas de estructuración son aplicables a los programadores de sistemas y se ha comprobado que algunos sistemas operativos están implementados como un conjunto de procesos. <br>
+La <b>secuencialidad</b>, en contraste, implica que las operaciones o procesos se ejecutan en un orden lineal, uno tras otro. No hay paralelismo, y cada tarea espera a que la anterior termine antes de comenzar. <br> Esto es más sencillo 
+de implementar y no requiere el uso de mecanismos de sincronización, pero puede ser menos eficiente en entornos donde la simultaneidad de tareas es deseable. <br> 
+<b>Características: </b> <br>
+<b>Simplicidad</b>: La programación secuencial es más simple, ya que no hay problemas de sincronización ni condiciones de carrera. <br>
+<b>Desempeño ilimitado: </b>Los sistemas secuenciales no pueden aprovechar la capacidad total del hardware en sistemas modernos, ya que se limitan a procesar una tarea a la vez. <br>
+Los sistemas operativos modernos deben combinar ambos enfoques según las necesidades del sistema. La concurrencia es esencial para manejar múltiples usuarios o servicios de manera eficiente,
+ mientras que algunos procesos internos del sistema o tareas específicas pueden ejecutarse de forma secuencial para simplificar la administración de los recursos o la seguridad. <br>
+Ejemplo práctico: <br>
+Escuchar música mientras escribes una tarea es concurrencia; resolver operaciones matemáticas una tras otra es secuencialidad.
+</p>
+<img src="img/tema7.png" class="imagen">
+<link rel="stylesheet" href="https://www.studocu.com/es-mx/document/instituto-tecnologico-superior-de-zapopan/ingenieria-de-software/concurrencia-y-secuenciabilidad/110144283">
+ <p>1.¿Qué ocurre cuando un proceso se bloquea esperando por la E/S?</p>
+        <label> <input type="radio" name="p1" value="a">La CPU queda inactiva hasta que el proceso se desbloquee</label> <br>
+        <label> <input type="radio" name="p1" value="b">La CPU ejecuta otro proceso de forma intercalada </label> <br>
+        <label> <input type="radio" name="p1" value="c">El sistema operativo detiene todos los procesos</label> <br>
+
+        <p>2.¿Cuál es una característica principal de la programación secuencial?</p>
+        <label> <input type="radio" name="p2" value="a">Requiere mecanismos de sincronización</label> <br>
+        <label> <input type="radio" name="p2" value="b"> Es más simple porque no hay condiciones de carrera</label> <br>
+        <label> <input type="radio" name="p2" value="c">Aprovecha al máximo el hardware moderno</label> <br>
+        
+        <p>3.¿En qué contextos puede presentarse la concurrencia?</p>
+        <label> <input type="radio" name="p3" value="a">Solo en aplicaciones estructuradas</label> <br>
+        <label> <input type="radio" name="p3" value="b"> En varias aplicaciones, aplicaciones estructuradas y en la estructura del sistema operativo</label> <br>
+        <label> <input type="radio" name="p3" value="c">NÚnicamente en sistemas secuenciales</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado10"></h3>
+    </div>
+    <div id="niveles" class="contenido">
+        <h2>NIVELES, OBJETIVOS Y CRITERIOS DE PLANIFICACIÓN</h2>
+        <form id="test11">
+        <br>
+        <p> La planificación es el proceso por el cual el sistema operativo selecciona qué proceso ejecutar. La selección del proceso
+             se basa en alguno de los algoritmos de planificación. La planificación de la CPU, en el sentido de conmutarla entre los distintos
+              procesos, es una de las funciones más importantes del sistema operativo. Este despacho es llevado a cabo por un pequeño programa llamado
+               planificador a corto plazo o <i>dispatcher</i> (despachador). La misión del dispatcher consiste en asignar la CPU a uno de los procesos
+                ejecutables del sistema, para ello sigue un determinado algoritmo. Los acontecimientos que pueden provocar la llamada al dispatcher son:
+                 cuando un proceso termina, cuando un proceso pasa a estado de espera, cuando ocurre una interrupción o cuando finaliza el tiempo asignado a un proceso. 
+                </p> <p> Existen tres niveles de <i>scheduling</i> o planificación:
+                 </p> <ul> <li> <b>Planificación a largo plazo:</b> se encarga de admitir procesos al sistema y controlar el grado de multiprogramación. 
+                    Decide cuáles procesos entrarán a la cola de procesos listos. </li> <li> <b>Planificación a mediano plazo:</b> administra los procesos suspendidos temporalmente
+                         y decide cuáles deben regresar a memoria principal para continuar su ejecución. </li> <li> <b>Planificación a corto plazo:</b> 
+                            selecciona de manera rápida el siguiente proceso que utilizará la CPU. Es la más frecuente y debe ser muy eficiente. </li> </ul> <p>
+                                 Los principales objetivos de la planificación son mejorar el rendimiento del sistema, aprovechar al máximo la CPU, reducir el tiempo de espera de
+                                  los procesos y garantizar que todos los procesos reciban atención de manera justa. </p> <p> Entre los criterios de planificación se encuentran:
+                                    <br> Ejemplo práctico: <br>
+El sistema operativo da prioridad a una videollamada antes que a una descarga en segundo plano para evitar interrupciones.</p> 
+<img src="img/tema8.png" class="imagen">
+<ul> <li>Uso eficiente de la CPU.</li> <li>Mayor rendimiento o cantidad de procesos completados.</li> <li>Reducción del tiempo de espera.</li> <li>Disminución del tiempo de respuesta.</li>
+             <li>Equidad entre los procesos.</li>
+
+              <p>1.¿Cuál es la misión principal del dispatcher (despachador)?</p>
+        <label> <input type="radio" name="p1" value="a">Planificación de hardware, software y usuarios</label> <br>
+        <label> <input type="radio" name="p1" value="b">Planificación a largo plazo, a mediano plazo y a corto plazo</label> <br>
+        <label> <input type="radio" name="p1" value="c">Planificación de memoria, CPU y E/S</label> <br>
+
+        <p>2.¿Cuáles son los tres niveles de planificación en un sistema operativo?</p>
+        <label> <input type="radio" name="p2" value="a">Requiere mecanismos de sincronización</label> <br>
+        <label> <input type="radio" name="p2" value="b"> Es más simple porque no hay condiciones de carrera</label> <br>
+        <label> <input type="radio" name="p2" value="c">Aprovecha al máximo el hardware moderno</label> <br>
+        
+        <p>3.¿Cuál es uno de los principales objetivos de la planificación de procesos?</p>
+        <label> <input type="radio" name="p3" value="a">Reducir el tiempo de espera y garantizar equidad</label> <br>
+        <label> <input type="radio" name="p3" value="b">Aumentar la complejidad del sistema</label> <br>
+        <label> <input type="radio" name="p3" value="c">Evitar la multiprogramación</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado11"></h3>
+    </div>
+    <div id="tecnicas" class="contenido">
+        <h2>TÉCNICAS DE ADMINISTRADO DE PLANIFICADOR</h2>
+        <form id="test12">
+        <P><b>FIFO</b> - (First in - First out)Mejor conocido en español como: "El primero que llega es el primero que sale",
+            este guarda relación con las tipicas colas de supermercado, el primero que seforma es   el   primero   en  ser   atentido   y   asi   sucesivamente.  Una   vez   que   unproceso obtiene la cpu, se ejecuta hasta terminar, ya que es una disciplina “noapropiativa”. Puede ocasionar que procesos largos hagan esperar a procesoscortos y que procesos no importantes hagan esperar a procesos importantes.En   resumen   este   proceso   escoge   al   que   lleva   más   tiempo   esperando,   sinimportar   el   grado   de   importacia   o   tiempo   de   ejecución   requerido  para   esetrabajo. Una vez el proceso entra a la CPU nadie puede quitarle su lugar hastaque este termine de hacer sus tareas <br>
+         <img src="img/tema101.png" class="imagen" alt="Algoritmo FIFO"> <br>
+            <b>SJF</b> (Short Job First) <br>
+        Este podria ser traducido como "Primero los trabajos cortos" o "trabajo mascorto primero", que vendria siendo que se llevaran acabo todos los procesospequeños primero y los procesos pesados hasta al ultimo, es una diciplina noapropiativa en donde favorece a los procesos cortos a costa de los procesoslargos. <br>
+       <img src="img/tema102.png" class="imagen" alt="Algoritmo SJF"> 
+        <b>SRTF</b> (Short Remaining Time First)Planificación por Prioridad al Tiempo Restante más Corto, este metodo refierea una diciplina apropiativa, donde el cpu albergara al proceso con el tiemporestante de ejecución mas corto, es por decir si tengo un proceso ejecutantose,el cual tardaria 10s en acabar, pero surge otro 
+        que me dice que solo necesita2s, 
+        pues el sistema no lo pensara y atendera al de 2s primero, es como en lasfilas de banco, si tu transacción requiere mucho tiempo te piden permiso para atender   a   las   demas   personas   con   operaciones   mas   rapidas   que   la   tuyamientras la tuya es procesada en espera. <br>
+       <img src="img/tema103.png" class="imagen" alt="Algoritmo SRTF"> <br>
+        <b>Roun Robin</b> <br>
+            En este tipo de algoritmo cada proceso tiene asignado un intervalo de tiempode ejecución, llamado quantum o cuanto. Si el proceso agota su quantum detiempo, se elige a otro proceso para ocupar la CPU. Si el proceso se bloquea otermina antes de agotar su quantum también se 
+            alterna el uso de la CPU. Encomparativa es como cuando compartes algo con tus hermanos, digamos unaconsola de videojuegos, cada uno tiene un tiempo y horario para usarla, si tepasas de ese tiempo tu hermano puede venir a quitartela y no podras rechistaral respecto por que ya caduco tu tiempo para usarla (se lo se es injusto pero nimodo). <br>
+            <b>QuevesMultilevel</b> <br>
+            Un  algoritmo de  planificación  multinivel particiona  la cola   de listos  en colasseparadas.   Se   asignan   en   forma   permanente   los   trabajos   a   una   cola,generalmente, basándose en alguna propiedad del mismo (requerimientos dememoria, tipo de trabajo), teniendo cada cola su propio algoritmo. Por ejemplo,la cola interactiva podría planificarse usando RR y la batch FIFO.Ningún trabajo en una cola de baja prioridad puede ejecutarse si las colas conmayor prioridad no están vacías. Si algún trabajo entra en una cola de mayorprioridad,   el   trabajo   de   otras   colas   es   interrumpido.   Este   lo   podemosejemplificar de nuevo con las colas del banco, 
+            donde podemos separar a losclientes segun la transacción que estos realizaran, como por ejemplo una colapara   puros   depostios,   otra   cola   para   puros   retiros,   otra   para   transaccionesbancarias etc. <br>
+        <b>MultiLevel Feedback Queves</b> <br>
+        En   colas   multinivel   realimentadas   los   trabajos   pueden   moverse   dentro   dedistintas   colas.   La   idea   es   separar   procesos   con   distintos   tipos   deinterrupciones de la CPU. Si un trabajo consume mucho tiempo de CPU, serámovido a una cola con menor prioridad.En forma similar, si un proceso espera demasiado tiempo en una cola de bajaprioridad, lo moveremos a una cola de mayor prioridad. Aplicando la mismaanalogia anterior, si un cliente lleva mucho tiempo esperando realizar un retiroy la cola
+         proxima no tiene mucha carga de trabajo, este puede cambiarse defila para agilizar su proceso. <br>
+        </P>
+       
+<link rel="stylesheet" href="https://www.studocu.com/es-mx/document/instituto-tecnologico-de-ciudad-madero/sistemas-operativos/tecnicas-de-administracion-del-planificador/24832029">
+
+
+         <p>1.¿Cuál es la principal desventaja del algoritmo FIFO?</p>
+        <label> <input type="radio" name="p1" value="a">Favorece a los procesos cortos</label> <br>
+        <label> <input type="radio" name="p1" value="b">Procesos largos pueden retrasar a los cortos</label> <br>
+        <label> <input type="radio" name="p1" value="c">Requiere sincronización compleja</label> <br>
+
+        <p>2.¿Qué diferencia al algoritmo SRTF del SJF?</p>
+        <label> <input type="radio" name="p2" value="a">SRTF es apropiativo y SJF no </label> <br>
+        <label> <input type="radio" name="p2" value="b">SJF favorece procesos largos y SRTF cortos</label> <br>
+        <label> <input type="radio" name="p2" value="c">Ambos son idénticos en funcionamiento</label> <br>
+        
+        <p>3.¿Qué característica define al algoritmo Round Robin?</p>
+        <label> <input type="radio" name="p3" value="a">Cada proceso recibe un quantum de tiempo</label> <br>
+        <label> <input type="radio" name="p3" value="b">Los procesos se ejecutan hasta terminar sin interrupción</label> <br>
+        <label> <input type="radio" name="p3" value="c">Los procesos se ordenan por prioridad fija</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado12"></h3>
+    </div>
+    <div id="politica" class="contenido">
+        <h2>POLITICA Y FILOSOFIA</h2> <br>
+        <form id="test13">
+        <p>La administración de memoria se refiere a los distintos métodos y operaciones que se
+encargan de obtener la máxima utilidad de la memoria, organizando los procesos y
+
+programas que se ejecutan de manera tal que se aproveche de la mejor manera posible el
+
+espacio disponible.
+
+Para poder lograrlo, la operación principal que realiza es la de trasladar la información que
+
+deberá ser ejecutada por el procesador, a la memoria principal.
+<h3>POLITICA</h3>
+El sistema operativo debe llevar a cabo una política de espacio de asignación de memoria.
+
+Esto es necesario cuando se precisa crear el mapa de memoria de un proceso que ocupa
+
+un determinado tamaño para poder así determinar qué zonas libres se deberían utilizar;
+
+esto con el fin de lograr conjugar los siguientes aspectos:
+
+1.Buen aprovechamiento de la memoria <br>
+2.Algoritmo de decisión eficiente. <br>
+Para lograr conjugar los aspectos anteriores es necesario contestarnos las siguientes preguntas: <br>
+
+¿Cuándo se toma un nuevo programa para colocarlo en memoria? <br>
+¿Se toma el programa cuando el sistema lo solicita específicamente o se intenta anticiparse a las particiones del sistema? <br>
+¿En qué lugar del almacenamiento principal se coloca el programa por ejecutar? <br>
+¿Se colocan los programas lo más cerca unos de otros en los espacios disponibles de la memoria principal para reducir al mínimo el desperdicio de espacio, o se colocan los programas lo más rápido posible para reducir al mínimo el tiempo de ejecución? <br>
+Entre las políticas de asignación de memoria tenemos las siguientes: <br>
+<b>FIFO</b>
+Los procesos se despachan de acuerdo a su tiempo de llega a la cola de procesos listos, si un proceso llega al procesador sale hasta que termine. La política FIFO actualmente no se usa como el esquema principal de un sistema, pero si por ejemplo cuando se usa una política de prioridades y hay procesos con la misma prioridad, a estos se les podría aplicar FIFO. <br>
+<b>Round Robin</b>
+Los procesos se atienden en la forma que lo hace el FIFO, pero se les asigna una cantidad limitada de tiempo en el procesador, si no termina en ese lapso se manda al final de la lista de procesos listos. <br>
+<b>SFJ</b>
+Se ejecuta primero el proceso en espera que tiene el menor tiempo estimado. SJF favorece a los procesos cortos, ya que los largos podrían llegar a rezagarse mucho tiempo e incluso nunca ejecutarse. <br>
+<b>SRT</b>
+En SJF una vez que un proceso comienza su ejecución continúa hasta terminar. En SRT, un proceso en ejecución puede ser desposeído por uno nuevo de menor tiempo de ejecución. <br>
+
+<h3>Filosofía</h3>
+La memoria principal puede ser considerada como un arreglo lineal de localidades 
+de almacenamiento de un byte de tamaño. Cada localidad de almacenamiento 
+tiene asignada una dirección que la identifica. 
+Una de las funciones básicas que debe implementar un SO es la Administración 
+de la Memoria para tener un control sobre los lugares donde están almacenados 
+los datos y procesos que actualmente se están utilizando. 
+Sea cual sea el esquema de organización del almacenamiento que se adopte para 
+un sistema específico es necesario decidir que estrategias se deben utilizar para 
+obtener un rendimiento óptimo. 
+</p>
+
+<p>1.¿Cuál es la función principal de la administración de memoria en un sistema operativo?</p>
+        <label> <input type="radio" name="p1" value="a">Trasladar la información a la memoria principal para que el procesador la ejecute </label> <br>
+        <label> <input type="radio" name="p1" value="b">Controlar los dispositivos de entrada/salida</label> <br>
+        <label> <input type="radio" name="p1" value="c">Administrar la red de usuarios</label> <br>
+
+        <p>2.¿Cuál es una diferencia clave entre SJF y SRT en la asignación de memoria?</p>
+        <label> <input type="radio" name="p2" value="a">SJF es apropiativo y SRT no </label> <br>
+        <label> <input type="radio" name="p2" value="b">SJF no es apropiativo, mientras que SRT sí lo es </label> <br>
+        <label> <input type="radio" name="p2" value="c">Ambos son idénticos en funcionamiento</label> <br>
+        
+        <p>3.¿Qué aspecto busca conjugar la política de asignación de memoria?</p>
+        <label> <input type="radio" name="p3" value="a"> Buen aprovechamiento de la memoria y un algoritmo de decisión eficiente </label> <br>
+        <label> <input type="radio" name="p3" value="b">Exclusivamente la rapidez de ejecución</label> <br>
+        <label> <input type="radio" name="p3" value="c"> Solo la seguridad de los procesos</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado13"></h3>
+    </div>
+    <div id="memoria" class="contenido">
+        <h2>MEMORIA REAL</h2>
+        <form id="test14">
+        <p>La memoria real o principal es en donde son ejecutados los programas y procesos 
+de una computadora y es el espacio real que existe en memoria para que se 
+ejecuten los procesos.  Por lo general esta memoria es de mayor costo que la 
+memoria secundaria, pero el acceso a la información contenida en ella es de mas 
+rápido acceso. <br>
+<b>Características</b>
+Capacidad, que representa el volumen global de información (en bits) que la memoria puede almacenar. <br>
+ Tiempo de acceso, que corresponde al intervalo de tiempo entre la solicitud de lectura/escritura y la disponibilidad de los datos. <br>
+   Tiempo  de  ciclo,  que  representa  el  intervalo  de  tiempo  mínimo  entre  dos accesos sucesivos. <br>
+     Rendimiento, que define el volumen de información intercambiado por unidad de tiempo, expresado en bits por segundo. <br>
+      No volatilidad, que caracteriza la capacidad de una memoria para almacenar datos cuando no recibe más electricidad. <br>
+      Los programas y datos deben estar en el almacenamiento principal para: <br>
+       Poderlos ejecutar. <br>
+       Referenciarlos directamente.
+       <b>Jerarquia</b>
+       La jerarquía de memoria es la organización piramidal de la memoria en niveles que tienen las computadoras. El objetivo es conseguir el rendimiento de una memoria de  gran  velocidad  al  coste  de  una  memoria  de  baja  velocidad,  basándose  en  el principio de cercanía de referencias. Nivel 0:  Registros-  memoria  de  alta  velocidad  y poca  capacidad, integrada  en  el CPU,  que  permite  guardar  y  acceder  a  valores  muy  usados,  generalmente  en operaciones matemáticas. Están en la cumbre de la jerarquía de memoria, y son la manera más rápida que tiene el sistema de almacenar datos. Se miden generalmente por el número de bits que almacenan; "registro de 8 bits" o "registro de 32 bits". Se implementan en un banco de registros Los CPU tienen además otros registros usados con un propósito específico, como el contador de programa. <br>
+            Nivel 1: Memoria caché- tipo especial de memoria que se sitúa entre el CPU y la RAM para almacenar datos que se usan frecuentemente. Agiliza la transmisión de datos entre el CPU y la memoria principal. Es de acceso directo y mucho más rápida que la RAM. <br>
+              Nivel  2:  Memoria  principal-  Son  circuitos  integrados  capaces  de  almacenar información digital, a los que tiene acceso el CPU. Poseen una menor capacidad. <br>
+              Nivel 3: Memoria secundaria- dispositivo encargado de almacenar información de forma permanente. <br>
+    <br>Ejemplo práctico: <br>
+Cuando abres varias aplicaciones y la computadora se vuelve lenta, significa que la memoria RAM está casi llena.
+            </p>
+<img src="img/tema11.png" class="imagen">
+
+    1.¿Qué es la memoria real o principal en un sistema operativo?</p>
+        <label> <input type="radio" name="p1" value="a">El espacio permanente donde se almacenan los datos</label> <br>
+        <label> <input type="radio" name="p1" value="b">El espacio físico donde se ejecutan programas y procesos</label> <br>
+        <label> <input type="radio" name="p1" value="c">Un tipo de memoria secundaria de bajo costo</label> <br>
+
+        <p>2.¿Cuál es la función de la memoria caché dentro de la jerarquía de memoria?</p>
+        <label> <input type="radio" name="p2" value="a">Almacenar datos de manera permanente</label> <br>
+        <label> <input type="radio" name="p2" value="b">Servir de intermediaria entre CPU y RAM para agilizar el acceso </label> <br>
+        <label> <input type="radio" name="p2" value="c">Guardar registros de operaciones matemáticas</label> <br>
+        
+        <p>3.¿Qué característica define la memoria real respecto a la memoria secundaria?</p>
+        <label> <input type="radio" name="p3" value="a">Es más barata pero más lenta</label> <br>
+        <label> <input type="radio" name="p3" value="b">Es más costosa pero de acceso más rápido</label> <br>
+        <label> <input type="radio" name="p3" value ="c">No puede ejecutar programas directamente</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado14"></h3>
+    </div>
+    <div id="organizacion" class="contenido">
+        <h2>ORGANIZACIÓN DE MEMORIA VIRTUAL</h2>
+        <form id="test15">
+        <p>Memoria virtual es un mecanismo de almacenamiento que ofrece al usuario la ilusión de tener una memoria principal muy grande. Se realiza tratando una parte de la memoria secundaria como memoria principal. En la memoria virtual, el usuario puede almacenar procesos con un tamaño mayor que la memoria principal disponible.
+
+Por lo tanto, en lugar de cargar un proceso largo en la memoria principal, el sistema operativo carga las distintas partes de más de un proceso en la memoria principal. La memoria virtual se implementa principalmente con paginación y segmentación de la demanda. <br>
+Paginación:
+Es una técnica de manejo de memoria, en la cual el espacio de memoria se divide en secciones físicas de igual tamaño, denominadas marcos de página
+El termino memoria virtual se asocia normalmente con sistemas que emplean paginación, aunque también se puede usar memoria virtual basada en la segmentación. <br>
+<b>Segmentación</b>
+La segmentación permite al programador contemplar la memoria como si constara de varios espacios de direcciones o segmentos. Los segmentos pueden ser de distintos tamaños, incluso de forma dinámica. Las referencias a la memoria constan de una dirección de la forma (número de segmento, desplazamiento). <br>
+Ejemplo práctico: <br>
+Si la RAM se llena, Windows utiliza parte del disco duro como memoria virtual para seguir ejecutando programas. <br>
+</p>
+<img src="img/tema12.png" class="imagen">
+     1.¿Qué es la memoria virtual en un sistema operativo?</p>
+        <label> <input type="radio" name="p1" value="a">Un mecanismo que ofrece la ilusión de tener una memoria principal muy grande </label> <br>
+        <label> <input type="radio" name="p1" value="b">Una memoria secundaria de acceso lento</label> <br>
+        <label> <input type="radio" name="p1" value="c">Un tipo de registro dentro del CPU</label> <br>
+
+        <p>2.¿Cómo se implementa principalmente la memoria virtual?</p>
+        <label> <input type="radio" name="p2" value="a">Con registros y caché</label> <br>
+        <label> <input type="radio" name="p2" value="b">Con paginación y segmentación bajo demanda</label> <br>
+        <label> <input type="radio" name="p2" value="c">Con almacenamiento en discos externos</label> <br>
+        
+        <p>3.¿Qué diferencia principal existe entre paginación y segmentación?</p>
+        <label> <input type="radio" name="p3" value="a">La paginación divide la memoria en marcos de tamaño fijo, mientras que la segmentación la divide en segmentos de tamaño variable</label> <br>
+        <label> <input type="radio" name="p3" value="b">Ambas usan bloques de tamaño fijo</label> <br>
+        <label> <input type="radio" name="p3" value ="c">La segmentación es más rápida que la paginación en todos los casos</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado15"></h3>
+    </div>
+    <div id="administracion" class="contenido">
+        <h2>ADMINISTRACION DE LA MEMORIA VIRTUAL</h2>
+        <form id="test16">
+        <p>Las estrategias para la administración de sistemas de almacenamiento virtual condicionan la conducta de los sistemas de almacenamiento virtual que operan según esas estrategias.
+Se consideran las siguientes estrategias:
+<b>Estrategias de búsqueda:</b>
+Tratan de los casos en que una página o segmento deben ser traídos del almacenamiento secundario al primario. <br>
+Las estrategias de <b>Búsqueda por demanda</b> esperan a que se haga referencia a una página o segmento por un proceso antes de traerlos al almacenamiento primario. <br>
+Los esquemas de <b>búsqueda anticipada</b> intentan determinar por adelantado a qué páginas o segmentos hará referencia un proceso para traerlos al almacenamiento primario antes de ser explícitamente referenciados. <br>
+<b>Estrategias de colocación: </b>
+Tratan del lugar del almacenamiento primario donde se colocará una nueva página o segmento. <br>
+Los sistemas toman las decisiones de colocación de una forma trivial ya que una nueva página puede ser colocada dentro de cualquier marco de página disponible. <br>
+<b>Estrategias de reposición:</b>
+Tratan de la decisión de cuál página o segmento desplazar para hacer sitio a una nueva página o segmento cuando el almacenamiento primario está completamente comprometido. <br>
+Ejemplo práctico: <br>
+El sistema mueve temporalmente información poco utilizada al disco duro para liberar espacio en RAM.</p>
+
+ 1.¿Qué caracteriza a la estrategia de búsqueda por demanda en memoria virtual?</p>
+        <label> <input type="radio" name="p1" value="a">Trae las páginas antes de ser referenciadas </label> <br>
+        <label> <input type="radio" name="p1" value="b">Espera a que un proceso haga referencia a una página o segmento antes de cargarla</label> <br>
+        <label> <input type="radio" name="p1" value="c">Coloca las páginas en cualquier marco disponible</label> <br>
+
+        <p>2.¿Qué función cumplen las estrategias de colocación en la administración de memoria virtual?</p>
+        <label> <input type="radio" name="p2" value="a">Decidir qué página reemplazar</label> <br>
+        <label> <input type="radio" name="p2" value="b">Determinar en qué lugar de la memoria principal se colocará una nueva página o segmento</label> <br>
+        <label> <input type="radio" name="p2" value="c">Predecir qué páginas se usarán en el futuro</label> <br>
+        
+        <p>3.¿Qué buscan resolver las estrategias de reposición?</p>
+        <label> <input type="radio" name="p3" value="a">Decidir qué página o segmento desplazar cuando la memoria está llena</label> <br>
+        <label> <input type="radio" name="p3" value="b">Reducir el tiempo de acceso a registros</label> <br>
+        <label> <input type="radio" name="p3" value ="c"> Evitar la multiprogramación</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado16"></h3>
+    </div>
+    <div id="dispositivos" class="contenido">
+        <h2>DISPOSITIVOS Y MANEJADORES DE DISPOSITIVOS</h2>
+        <form id="test17">
+        <p>
+            <h3>Dispositivos de E/S</h3> <br>Los dispositivos de entrada y salida o unidades de entrada/salida son los equipos físicos conectados a la computadora. Estos dispositivos permiten comunicar información entre el usuario y la computadora o manejar un soporte de información. <br>
+
+Son también llamados periféricos de computadora o periféricos de entrada y salida porque están separados de la unidad central de procesamiento. <br>
+
+Los dispositivos de entrada/salida se clasifican por las funciones que pueden realizar en dispositivos de entrada, dispositivos de salida y dispositivos de entrada y salida. <br>
+<table>
+<tr>
+    <td>Dispositivos de entrada</td>
+    <td>Dispositivos de salida</td>
+    <td>Dispositivos mixtos</td>
+</tr>
+<tr>
+    <td>teclado</td>
+    <td>Pantalla o display</td>
+    <td>Unidades de almacenamiento</td>
+</tr>
+<tr>
+    <td>Ratón o mouse</td>
+    <td>Impresoras</td>
+    <td>Modem</td>
+</tr>
+<tr>
+    <td>Lectora de código de barras</td>
+    <td>Altavoz</td>
+    <td>Router</td>
+</tr>
+<tr>
+    <td>Micrófono</td>
+    <td>Plotters</td>
+    <td>Pantalla táctil</td>
+</tr>
+</table>
+<h3>Controladores de Dispositivos</h3>
+Un controlador (instaladores) de disposotivos, normalmente llamado controlador en inglés (device driver) es un programa que infórmatico que permite al sistema operativo interactuar con un periférico, haciendo una abstracción del hardware del dispositivo y proporcionando una interfaz- posiblemente estardarizada - para usarlo. Se puede esquematizar como un manual de instrucciones que se indica al sistema operativo, cómo debe controlar y comunicarse con un dispositivo en particular. Por lo tanto es una pieza esencial, sin el cual,  no se podría usar el hardware.Los controladores de dispositivos son programas añanidos al núcleo del sistema para gestionar periféricos y dispositivos oficiales. <br>
+Las unidades de e / s generalmente constan de: <br>
+- Un componente mecánico. <br>
+- Un componente electrónico, el controlador del dispositivo o adaptador. <br>
+Muchos controladores pueden manejar más de un dispositivo. El S. O. generalmente trabaja con el controlador y no con el dispositivo.
+Los modelos más frecuentes de comunicación entre la cpu y los controladores son: <br>
+Para la mayoría de las micro y mini computadoras: <br>
+- Modelo de bus del sistema. <br>
+Para la mayoría de los mainframes: <br>
+Modelo de varios buses y computadoras especializadas en e / s llamadas canales de e / s. <br>
+La interfaz entre el controlador y el dispositivo es con frecuencia de muy bajo nivel: <br>
+La comunicación es mediante un flujo de bits en serie que: <br>
+- Comienza con un preámbulo. <br>
+- Sigue con una serie de bits (de un sector de disco, por ej.). <br>
+Concluye con una suma para verificación o un código corrector de errores.
+El preámbulo: <br>
+Se escribe al dar formato al disco.
+Contiene el número de cilindro y sector, el tamaño de sector y otros datos similares.
+El controlador debe: <br>
+Convertir el flujo de bits en serie en un bloque de bytes. <br>
+Efectuar cualquier corrección de errores necesaria. <br>
+Copiar el bloque en la memoria principal. <br>
+Cada controlador posee registros que utiliza para comunicarse con la cpu: <br>
+Pueden ser parte del espacio normal de direcciones de la memoria: e / s mapeada a memoria.
+Pueden utilizar un espacio de direcciones especial para la e / s, asignando a cada controlador una parte de él.
+El S. O. realiza la e/s al escribir comandos en los registros de los controladores; los parámetros de los comandos también se cargan en los registros de los controladores.
+Al aceptar el comando, la cpu puede dejar al controlador y dedicarse a otro trabajo.
+Al terminar el comando, el controlador provoca una interrupción para permitir que el S. O.:
+Obtenga el control de la cpu.
+Verifique los resultados de la operación. <br>
+Ejemplo práctico: <br>
+Cuando conectas una impresora, el sistema instala un controlador para poder utilizarla. <br>
+</p>
+<img src="img/tema13.png" class="imagen">
+    1.¿Qué son los dispositivos de entrada/salida (E/S)?</p>
+        <label> <input type="radio" name="p1" value="a">Programas que controlan la CPU</label> <br>
+        <label> <input type="radio" name="p1" value="b">Equipos físicos que permiten la comunicación entre usuario y computadora</label> <br>
+        <label> <input type="radio" name="p1" value="c">Memorias secundarias de almacenamiento</label> <br>
+
+        <p>2.¿Qué función cumple un controlador de dispositivo (driver)?</p>
+        <label> <input type="radio" name="p2" value="a">Administrar la memoria principal</label> <br>
+        <label> <input type="radio" name="p2" value="b">Permitir al sistema operativo interactuar con un periférico </label> <br>
+        <label> <input type="radio" name="p2" value="c">Ejecutar directamente las instrucciones del usuario</label> <br>
+        
+        <p>3.¿Qué ocurre cuando un controlador termina una operación de E/S?</p>
+        <label> <input type="radio" name="p3" value="a">Provoca una interrupción para que el sistema operativo verifique los resultados </label> <br>
+        <label> <input type="radio" name="p3" value="b">El CPU queda inactivo hasta que el usuario lo reactive</label> <br>
+        <label> <input type="radio" name="p3" value ="c">El dispositivo se desconecta automáticamente</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado17"></h3>
+    </div>
+    <div id="mecanismos" class="contenido">
+        <h2>MECANISMOS Y FUNCIONES DE LOS MANEJADORES DE DISPOSITIVOS</h2>
+        <form id="test18">
+        <table>
+            <tr>
+                <td>MECANISMOS</td>
+                <td>FUNCIONES</td>
+            </tr>
+            <tr>
+                <td>E/S programada(Spolling): la CPU controla directamente cada operación de entrada/salida.</td>
+                <td>Proporcionar una interfaz uniforme para todos los dispositivos.</td>
+            </tr>
+            <tr>
+                <td>E/S dirigida por interrupciones: el dispositivo avisa al procesador cuando termina su tarea.</td>
+                <td>Asignar y gestionar nombres de dispositivos.</td>
+            </tr>
+            <tr>
+                <td>Acceso Directo a Memoria (DMA): el módulo de E/S transfiere datos directamente entre memoria y dispositivo sin intervención constante de la CPU.</td>
+                <td>Proteger el acceso a los dispositivos.</td>
+            </tr>
+            <tr>
+                <td>Procesadores especializados de E/S: módulos que evolucionan hasta tener instrucciones propias para manejar dispositivos.</td>
+                <td>Ofrecer un tamaño de bloque uniforme, independientemente del hardware.</td>
+            </tr>
+            <tr>
+                <td>Módulos con memoria local: el controlador funciona como un pequeño computador independiente.</td>
+                <td>Informar errores detectados en operaciones de E/S.</td>
+            </tr>
+        </table>
+        <img src="img/tema14.png" class="imagen">
+         1.¿Qué caracteriza al mecanismo de E/S programada (Polling)?</p>
+        <label> <input type="radio" name="p1" value="a">El dispositivo avisa al procesador cuando termina su tarea</label> <br>
+        <label> <input type="radio" name="p1" value="b">La CPU controla directamente cada operación de entrada/salida </label> <br>
+        <label> <input type="radio" name="p1" value="c">Los datos se transfieren sin intervención de la CPU</label> <br>
+
+        <p>2.¿Cuál es una función esencial de los manejadores de dispositivos?</p>
+        <label> <input type="radio" name="p2" value="a">Ejecutar directamente los procesos del usuario</label> <br>
+        <label> <input type="radio" name="p2" value="b">Proporcionar una interfaz uniforme para todos los dispositivos </label> <br>
+        <label> <input type="radio" name="p2" value="c">Sustituir la memoria principal</label> <br>
+        
+        <p>3.¿Qué ventaja ofrece el uso de DMA (Acceso Directo a Memoria)?</p>
+        <label> <input type="radio" name="p3" value="a">Permite que el módulo de E/S transfiera datos directamente entre memoria y dispositivo sin intervención constante de la CPU </label> <br>
+        <label> <input type="radio" name="p3" value="b">Aumenta la complejidad de la programación</label> <br>
+        <label> <input type="radio" name="p3" value ="c"> Obliga a la CPU a controlar cada operación</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado18"></h3>
+    </div>
+    <div id="estdatos" class="contenido">
+        <h2>ESTRUCTURA DE DATOS PARA MANEJO DE DISPOSITIVOS</h2>
+        <form id="test19">
+        <p> Una Estructura de Datos es una forma de organizar un conjunto de datos elementales con 
+el objetivo de facilitar su manipulación. Un dato elemental es la mínima información que se 
+tiene en un sistema. <br>
+Los procesos de usuario emiten peticiones de entrada/salida al sistema operativo. Cuando 
+un proceso solicita una operación de E/S, el sistema operativo prepara dicha operación y 
+bloquea al proceso hasta que se recibe una interrupción del controlador del dispositivo 
+indicando que la operación está completa. Las peticiones se procesan de forma estructurada 
+en las siguientes capas:  <br>
+• Manejadores de interrupción: Un manejador de interrupciones, también conocido como ISR (interrupt service routine o 
+rutina de servicio de interrupción), es una subrutina callback en un sistema operativo o en 
+un controlador de dispositivo cuya ejecución es desencadenada por la recepción de una 
+interrupción. Los manejadores de instrucciones tienen una multitud de funciones, que 
+varían basadas en el motivo por el cual la interrupción fue generada y la velocidad en la 
+cual el manejador de interrupciones completa su tarea <br>
+• Manejadores de dispositivos o drivers.  <br>
+•Software de EIS independiente de los dispositivos. Este software está formado por la parte 
+de alto nivel de los manejadores, el gestor de cache, el gestor de bloques y el servidor de 
+archivos.  <br>
+• Interfaz del sistema operativo. Llamadas al sistema que usan las aplicaciones de usuario.  <br>
+<br>Ejemplo práctico: <br>
+El sistema operativo guarda una lista de impresiones pendientes antes de enviarlas a la impresora.
+        </p>
+<img src="img/tema15.png" class="imagen">
+         1.Qué es un manejador de interrupciones (ISR)?</p>
+        <label> <input type="radio" name="p1" value="a">Un controlador que gestiona archivos</label> <br>
+        <label> <input type="radio" name="p1" value="b">Una subrutina que se ejecuta cuando ocurre una interrupción </label> <br>
+        <label> <input type="radio" name="p1" value="c">Un programa que administra la memoria principal</label> <br>
+
+        <p>2.¿Qué función cumple el software de E/S independiente de los dispositivos?</p>
+        <label> <input type="radio" name="p2" value="a">Ejecutar procesos de usuario</label> <br>
+        <label> <input type="radio" name="p2" value="b">Proporcionar servicios de alto nivel como gestor de bloques, caché y servidor de archivos  </label> <br>
+        <label> <input type="radio" name="p2" value="c">Controlar directamente el hardware</label> <br>
+        
+        <p>3.¿Qué papel cumple la interfaz del sistema operativo en las operaciones de E/S?</p>
+        <label> <input type="radio" name="p3" value="a">Sustituye a los controladores de dispositivos</label> <br>
+        <label> <input type="radio" name="p3" value="b">Administra directamente los registros de la CPU</label> <br>
+        <label> <input type="radio" name="p3" value ="c"> Permite que las aplicaciones de usuario realicen llamadas al sistema para interactuar con los dispositivos</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado19"></h3>
+    </div>
+    <div id="opes" class="contenido">
+        <h2>OPERACIONES DE ENTRADA / SALIDA</h2>
+        <form id="test20">
+        Es el conjunto de acciones necesarias para la transferencia de un conjunto de datos. <br>
+
+<b>FUNCIONES QUE REALIZAN:</b> <br>
+Direccionamiento o selección del dispositivo que debe llevar a cabo la operación de e/s <br>
+Transferencia de los datos entre el procesador y el dispositivo. <br>
+Sincronización y coordinación de las operaciones <br>
+Esta ultima función es necesaria debido a la deferencia de velocidades entre los dispositivos y la CPU y a la independencia que debe existir entre los periféricos y la CPU (por ejemplo, suelen tener relojes diferentes).
+Se define una transferencia elemental de información como la transmisión de una sola unidad de información (normalmente un byte) entre el procesador y el periférico o viceversa.
+
+Para efectuar una transferencia elemental de información son precisas las siguientes funciones: <br>
+Establecimiento de una comunicación física entre el procesador y el periférico para la transmisión de la unidad de información. <br>
+Control de los periféricos, en que se incluyen operaciones como prueba y modificación del estado del periférico. <br>
+Ejemplo práctico: <br>
+Guardar un archivo en una USB es una operación de salida y abrirlo nuevamente es una operación de entrada. <br>
+<img src="img/tema16.png" class="imagen">
+1.¿Cuál es una función esencial de las operaciones de E/S?</p>
+        <label> <input type="radio" name="p1" value="a">Un controlador que gestiona archivos</label> <br>
+        <label> <input type="radio" name="p1" value="b">Controlar directamente la memoria principal</label> <br>
+        <label> <input type="radio" name="p1" value="c">Ejecutar procesos de usuario</label> <br>
+
+        <p>2.¿Por qué es necesaria la sincronización en las operaciones de E/S?</p>
+        <label> <input type="radio" name="p2" value="a">Porque los periféricos y la CPU tienen diferentes velocidades y relojes </label> <br>
+        <label> <input type="radio" name="p2" value="b">Para reducir el tiempo de respuesta de la memoria secundaria</label> <br>
+        <label> <input type="radio" name="p2" value="c">Para evitar que los programas se ejecuten en paralelo</label> <br>
+        
+        <p>3.¿Qué se entiende por transferencia elemental de información?</p>
+        <label> <input type="radio" name="p3" value="a">La transmisión de una sola unidad de información (normalmente un byte) entre procesador y periférico</label> <br>
+        <label> <input type="radio" name="p3" value="b">La ejecución completa de un proceso en la CPU</label> <br>
+        <label> <input type="radio" name="p3" value ="c"> La copia de bloques de datos en memoria secundaria</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado20"></h3>
+
+    </div>
+    <div id="concepto2" class="contenido"> 
+        <h2>CONCEPTO (SISTEMAS DE ARCHIVO)</h2> <br>
+        <form id="test21">
+        <p>Un sistema de archivos es el método y estructura que utiliza un sistema operativo para organizar, almacenar, administrar y recuperar la información guardada en dispositivos de almacenamiento secundarios, como discos duros, memorias USB, discos SSD, CD, DVD y tarjetas SD. Su función principal es permitir que los datos puedan almacenarse de manera ordenada y que los usuarios o programas puedan acceder a ellos fácilmente.
+
+Cuando un usuario guarda un archivo, el sistema operativo no almacena la información de manera aleatoria. En realidad, el sistema de archivos divide los datos en bloques o sectores y registra exactamente dónde se encuentran físicamente dentro del dispositivo. Gracias a ello, cuando el usuario solicita abrir el archivo, el sistema puede localizarlo rápidamente.
+
+El sistema de archivos también se encarga de: <br>
+- Asignar nombres a los archivos. <br>
+- Crear carpetas y subcarpetas. <br>
+- Controlar permisos de acceso. <br>
+- Administrar espacio libre. <br>
+- Evitar corrupción de datos. <br>
+- Recuperar información ante fallos. <br>
+Sin un sistema de archivos, la computadora únicamente vería cadenas de bits sin significado. El sistema operativo no podría diferenciar entre imágenes, documentos o programas.
+
+Cada sistema operativo utiliza diferentes sistemas de archivos según sus necesidades:
+<table>
+    <tr>
+    <th>Sistema Operativo</th>
+    <th>Sistema de Archivo</th>
+    </tr>
+    <tr>
+        <td>Windows</td>
+        <td>FAT32, NTFS, exFAT</td>
+    </tr>
+    <tr>
+        <td>Linux</td>
+        <td>ext2, ext3, ext4</td>
+    </tr>
+    <tr>
+        <td>macOS</td>
+        <td>APFS, HFS+</td>
+    </tr>
+</table>
+<h3>Ejemplo: </h3><br>
+    Cuando un estudiante guarda un archivo llamado: <br>
+    Tarea_SistemasOperativos.docx <br>
+    el sistema operativo:
+
+* Asigna un nombre. <br>
+* Guarda la información en bloques físicos. <br>
+* Registra la ubicación del archivo. <br>
+* Relaciona el archivo con la carpeta correspondiente. <br>
+* Actualiza la tabla de almacenamiento. <br>
+
+Todo este proceso ocurre automáticamente gracias al sistema de archivos.
+</p>
+1.¿Cuál es la función principal de un sistema de archivos?</p>
+        <label> <input type="radio" name="p1" value="a">Ejecutar programas en la memoria RAM</label> <br>
+        <label> <input type="radio" name="p1" value="b">Organizar, almacenar y recuperar información en dispositivos de almacenamiento</label> <br>
+        <label> <input type="radio" name="p1" value="c">Administrar procesos en segundo plano</label> <br>
+
+        <p>2.¿Cuál de los siguientes sistemas de archivos pertenece a Windows?</p>
+        <label> <input type="radio" name="p2" value="a">NTFS </label> <br>
+        <label> <input type="radio" name="p2" value="b">APFS</label> <br>
+        <label> <input type="radio" name="p2" value="c">ext3</label> <br>
+        
+        <p>3.¿Qué sucede cuando un usuario guarda un archivo en un sistema de archivos?</p>
+        <label> <input type="radio" name="p3" value="a">El sistema operativo lo almacena de manera aleatoria</label> <br>
+        <label> <input type="radio" name="p3" value="b"> El sistema de archivos divide los datos en bloques y registra su ubicación</label> <br>
+        <label> <input type="radio" name="p3" value ="c">El archivo se convierte automáticamente en un programa ejecutable</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado21"></h3>
+    </div>
+    <div id="nocion" class="contenido">
+        <h2>NOCIÓN DE ARCHIVO REAL Y VIRTUAL</h2> <br>
+        <form id="test22">
+        <h3>ARCHIVO REAL</h3>
+        <p>
+            Un archivo real es aquel que existe físicamente dentro de un dispositivo de almacenamiento. Contiene información almacenada de forma permanente y ocupa espacio real en el disco duro o memoria secundaria. <br>
+
+Ejemplos: <br>
+
+-Fotografías. <br>
+-Videos. <br>
+-Documentos PDF. <br>
+-Programas ejecutables. <br>
+
+<h3>ARCHIVO VIRTUAL</h3>
+ Un archivo virtual no necesariamente existe físicamente como un archivo independiente. Es una representación lógica creada por el sistema operativo o por aplicaciones para facilitar procesos internos. <br>
+
+En muchos casos, los archivos virtuales se generan dinámicamente cuando son solicitados. <br>
+   <b>Ejemplos:</b> <br>
+- Memoria virtual <br>
+- Archivos temporales <br>
+- Sistemas virtuales como Linux  <br> 
+
+<table>
+    <tr>
+    <th>Archivo real</th>
+    <th>Archivo virtual</th>
+    </tr>
+    <tr>
+        <td>Existe físicamente</td>
+        <td>Puede no existir físicamente</td>
+    </tr>
+    <tr>
+        <td>Ocupa espacio permanente</td>
+        <td>Puede ser temporal</td>
+    </tr>
+    <tr>
+        <td>Se almacena en disco</td>
+        <td>Puede generarse dinámicamente</td>
+    </tr>
+</table>
+</p> <img src="img/tema5.2.png" class="imagen">
+
+        1.¿Qué caracteriza a un archivo real?</p>
+        <label> <input type="radio" name="p1" value="a">Se genera dinámicamente cuando es solicitado</label> <br>
+        <label> <input type="radio" name="p1" value="b"> Existe físicamente en un dispositivo de almacenamiento</label> <br>
+        <label> <input type="radio" name="p1" value="c">No ocupa espacio en disco</label> <br>
+
+        <p>2.¿Cuál de los siguientes ejemplos corresponde a un archivo virtual?</p>
+        <label> <input type="radio" name="p2" value="a">Documento PDF </label> <br>
+        <label> <input type="radio" name="p2" value="b">Fotografía</label> <br>
+        <label> <input type="radio" name="p2" value="c">Archivo temporal </label> <br>
+        
+        <p>3.¿Cuál es una diferencia clave entre archivo real y archivo virtual según la tabla?</p>
+        <label> <input type="radio" name="p3" value="a">El archivo real puede ser temporal y el virtual ocupa espacio permanente</label> <br>
+        <label> <input type="radio" name="p3" value="b"> El archivo real se almacena en disco y el virtual puede generarse dinámicamente</label> <br>
+        <label> <input type="radio" name="p3" value ="c">El archivo real no existe físicamente y el virtual sí</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado22"></h3>
+    </div>
+    <div id="componentes" class="contenido">
+        <h2>COMPONENTES DE UN SISTEMA DE ARCHIVOS</h2>
+        <form id="test23">
+        <p>
+           <b>1. Archivos</b> <br>
+
+Son la unidad principal de almacenamiento lógico. Cada archivo contiene datos relacionados. <br>
+
+Tipos: <br>
+
+-Texto. <br>
+-Audio. <br>
+-Video. <br>
+-Ejecutables. <br>
+-Bases de datos. <br>
+<b>2. Directorios o carpetas</b>
+
+Permiten organizar archivos de forma jerárquica. <br>
+
+Ejemplo: <br>
+
+Documentos/ <br>
+ Escuela <br>
+ Fotos <br>
+ Música <br>
+
+Los directorios facilitan la localización de información. <br>
+
+ <b>3. Metadatos</b>
+
+Son datos que describen otros datos. <br>
+
+Incluyen: <br>
+
+Nombre. <br>
+Tamaño. <br>
+Fecha de creación. <br>
+Fecha de modificación. <br>
+Permisos. <br>
+Propietario. <br>
+
+Los metadatos ayudan al sistema operativo a administrar archivos correctamente. <br>
+
+ <b>4. Bloques o clusters</b>
+
+Los discos almacenan información en pequeñas unidades llamadas bloques. <br>
+
+Cuando un archivo es guardado: <br>
+
+Se divide en partes. <br>
+Cada parte se almacena en bloques. <br>
+ <b>5. Tabla de asignación</b>
+
+Es una estructura que indica: <br>
+
+Qué bloques pertenecen a cada archivo. <br>
+Qué espacios están libres. <br>
+
+ <b>6. Gestor de espacio libre</b>
+
+Controla las zonas disponibles del disco para nuevos archivos. <br>
+
+Funciones: <br>
+
+1.Detectar espacios libres. <br>
+2.Reutilizar áreas vacías. <br>
+3.Optimizar almacenamiento. <br>
+<b>7. Control de acceso</b>
+Administra permisos y seguridad. <br>
+
+<b>8. Mecanismos de recuperación</b>
+
+Permiten restaurar información ante fallos. 
+
+Ejemplos: <br>
+Copias de seguridad. <br>
+Verificación de integridad. <br>
+        </p>
+
+        1.¿Qué función cumplen los metadatos dentro de un sistema de archivos?</p>
+        <label> <input type="radio" name="p1" value="a">Organizar archivos en carpetas</label> <br>
+        <label> <input type="radio" name="p1" value="b">Describir datos como nombre, tamaño y permisos</label> <br>
+        <label> <input type="radio" name="p1" value="c">Dividir archivos en bloques físicos</label> <br>
+
+        <p>2.¿Cuál de los siguientes componentes se encarga de indicar qué bloques pertenecen a cada archivo y cuáles están libres?</p>
+        <label> <input type="radio" name="p2" value="a">Tabla de asignación</label> <br>
+        <label> <input type="radio" name="p2" value="b">Directorios</label> <br>
+        <label> <input type="radio" name="p2" value="c">Control de acceso </label> <br>
+        
+        <p>3.¿Cuál es la función principal del gestor de espacio libre?</p>
+        <label> <input type="radio" name="p3" value="a">Administrar permisos y seguridad</label> <br>
+        <label> <input type="radio" name="p3" value="b">Detectar y reutilizar áreas vacías del disco </label> <br>
+        <label> <input type="radio" name="p3" value ="c">Restaurar información ante fallos</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado23"></h3>
+    </div>
+    <div id="logicayfisica" class="contenido">
+        <h2>ORGANIZACIÓN LÓGICA Y FÍSICA</h2>
+        <form id="test24">
+        <h3>Organización Lógica</h3> <br>
+        <p>Es la forma en que los usuarios observan y administran los archivos. <br>
+        Incluye: Carpetas, subcarpetas, nombres, rutas. <b>Ejemplo: </b> <br>
+    C:\Usuarios\Propietario\Tareas\SistemasOperativos <br>
+Esto non facilita la busqueda y mejora la organizacion. <br>
+<h3>Organización física</h3> <br>
+Es la manera en que los datos se almacenan realmente dentro del disco duro. Los archivos se guardan en sectores, Pistas, bloques. <br>
+El usuario no ve la organización</p>
+
+ 1.¿Qué representa la organización lógica de los archivos?</p>
+        <label> <input type="radio" name="p1" value="a">La forma en que los usuarios observan y administran archivos</label> <br>
+        <label> <input type="radio" name="p1" value="b">La manera en que los datos se guardan en sectores del disco</label> <br>
+        <label> <input type="radio" name="p1" value="c">El control de permisos de acceso</label> <br>
+
+        <p>2.¿Cuál de los siguientes elementos pertenece a la organización lógica?</p>
+        <label> <input type="radio" name="p2" value="a">Carpetas y subcarpetas </label> <br>
+        <label> <input type="radio" name="p2" value="b">Sectores y pistas</label> <br>
+        <label> <input type="radio" name="p2" value="c">Bloques físicos del disco</label> <br>
+        
+        <p>3.¿Qué caracteriza a la organización física de los archivos?</p>
+        <label> <input type="radio" name="p3" value="a">Se basa en nombres y rutas visibles para el usuario</label> <br>
+        <label> <input type="radio" name="p3" value="b">Los datos se almacenan realmente en sectores, pistas y bloques</label> <br>
+        <label> <input type="radio" name="p3" value ="c">Permite crear carpetas jerárquicas</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado24"></h3>
+    </div>
+    <div id="acceso" class="contenido">
+        <h2>MECANISMOS DE ACCESO A LOS ARCHIVOS</h2>
+        <form id="test25">
+        <p>Los mecanismos de acceso determinan cómo un programa puede leer o modificar información. <br>
+        <b>Acceso secuencial:</b> Los datos se leen en orden. <br> Ejemplo: Reproducción de música. <br>
+    <b>Acceso Directo:</b> Permite acceder a cualquier posición del archivo. <br> Ejemplo: Bases de datos. <br>
+<b>Acceso indexado:</b> Utiliza índices para localizar información rapidamente. <br> Ejemplo: Motores de búsqueda. <br>
+</p>
+1.¿Cuál es un ejemplo de acceso secuencial?</p>
+        <label> <input type="radio" name="p1" value="a">Reproducción de música </label> <br>
+        <label> <input type="radio" name="p1" value="b">Motores de búsqueda</label> <br>
+        <label> <input type="radio" name="p1" value="c">Bases de datos</label> <br>
+
+        <p>2.¿Qué caracteriza al acceso directo?</p>
+        <label> <input type="radio" name="p2" value="a">Los datos se leen en orden</label> <br>
+        <label> <input type="radio" name="p2" value="b">Permite acceder a cualquier posición del archivo</label> <br>
+        <label> <input type="radio" name="p2" value="c">Utiliza índices para localizar información</label> <br>
+        
+        <p>3.¿Cuál de los siguientes mecanismos utiliza índices para localizar información rápidamente?</p>
+        <label> <input type="radio" name="p3" value="a">Acceso secuencial</label> <br>
+        <label> <input type="radio" name="p3" value="b">Acceso indexado</label> <br>
+        <label> <input type="radio" name="p3" value ="c">Acceso directo</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado25"></h3>
+    </div>
+    <div id="manejo" class="contenido">
+        <h2>MANEJO DE ESPACIO O MEMORIA SECUNDARIA</h2>
+        <form id="test26">
+        <p>La memoria secundaria almacena información de manera permanente. <br>
+
+Ejemplos: <br>
+
+-HDD. <br>
+-SSD. <br>
+-USB. <br>
+Los objetivos son evitar el desperdicio de espacio, mejorar la velociada, reducir la fragmentación, facilitar la recuperación. <br>
+
+</p>
+1.¿Qué caracteriza a la memoria secundaria?</p>
+        <label> <input type="radio" name="p1" value="a">Almacena información de manera permanente </label> <br>
+        <label> <input type="radio" name="p1" value="b">Solo guarda datos en la RAM</label> <br>
+        <label> <input type="radio" name="p1" value="c">No puede recuperar información</label> <br>
+
+        <p>2.¿Cuál de los siguientes dispositivos es un ejemplo de memoria secundaria?</p>
+        <label> <input type="radio" name="p2" value="a">Procesador</label> <br>
+        <label> <input type="radio" name="p2" value="b">SSD</label> <br>
+        <label> <input type="radio" name="p2" value="c">Memoria caché</label> <br>
+        
+        <p>3.¿Cuál de los objetivos del manejo de memoria secundaria se menciona en el texto?</p>
+        <label> <input type="radio" name="p3" value="a">Ejecutar programas más rápido</label> <br>
+        <label> <input type="radio" name="p3" value="b">Evitar desperdicio de espacio y reducir fragmentación</label> <br>
+        <label> <input type="radio" name="p3" value ="c">Controlar permisos de acceso</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado26"></h3>
+    </div>
+    <div id="jerarquico" class="contenido">
+        <h2>MODELO JERÁRQUICO</h2>
+        <form id="test27">
+        <p>El modelo jerárquico organiza archivo en forma de árbol. Cada directorio puede contener archivos o subdirectorios.
+            <table>
+                <tr>
+                    <th>ventajas</th>
+                    <th>Desventajas</th>
+                </tr>
+                <tr>
+                    <td>Organización clara.</td>
+                    <td>Rutas largas.</td>
+                </tr>
+                <tr>
+                    <td>Facilita administración</td>
+                    <td>Dependencia entre directorios</td>
+                </tr>
+                <tr>
+                    <td>Permite permisos independientes.</td>
+                    <td>Puede complicarse en sistemas muy grandes.</td>
+                </tr>
+            </table>
+            <b>Ruta absoluta y relativa</b> <br>
+            <b>Ruta absoluta: </b> Indica direccion completa. Ejemplo: <br> C:\Usuarios\Nombre\Tareas. <br>
+            <b>Ruta relativa: </b> Depende del directorio actual. Ejemplo: <br> Tareas\ <br>
+
+        </p> <img src="img/tema5.7.png" class="imagen">
+        1.¿Cuál es una ventaja del modelo jerárquico de archivos?</p>
+        <label> <input type="radio" name="p1" value="a">Rutas largas</label> <br>
+        <label> <input type="radio" name="p1" value="b">Organización clara</label> <br>
+        <label> <input type="radio" name="p1" value="c">Dependencia entre directorios</label> <br>
+
+        <p>2.¿Qué caracteriza a una ruta absoluta?</p>
+        <label> <input type="radio" name="p2" value="a">Indica la dirección completa desde la raíz</label> <br>
+        <label> <input type="radio" name="p2" value="b">Depende del directorio actual</label> <br>
+        <label> <input type="radio" name="p2" value="c">Se genera dinámicamente en el sistema</label> <br>
+        
+        <p>3.¿Cuál es una desventaja del modelo jerárquico?</p>
+        <label> <input type="radio" name="p3" value="a">Permite permisos independientes</label> <br>
+        <label> <input type="radio" name="p3" value="b">Puede complicarse en sistemas muy grandes</label> <br>
+        <label> <input type="radio" name="p3" value ="c"> Facilita la administración</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado27"></h3>
+    </div>
+    <div id="fallas" class="contenido">
+        <h2>MECANISMOS DE RECUPERACIÓN EN CASO DE FALLA</h2>
+        <form id="test28">
+        <p>Los sistemas de archivos modernos incluyen herramientas para evitar pérdida de datos. <br>
+        <table>
+            <tr>
+                <th>Mecanismo</th>
+                <th>Función</th>
+            </tr>
+            <tr>
+                <td>Journaling</td>
+                <td>Registra operaciones antes de realizarlas. <br> Si ocurre una falla eléctrica el sistema revisa el registro y recupera operaciones pendientes.</td>
+            </tr>
+            <tr>
+                <td>Copias de seguridad</td>
+                <td>Dúplica información importante.</td>
+            </tr>
+            <tr>
+                <td>RAID</td>
+                <td>Combina varios discos para mejorar rendimiento y seguridad.</td>
+            </tr>
+            <tr>
+                <td>Verificación de integridad</td>
+                <td>Herramienta que detecta errores. <br> Ejemplos: CHKDSK y fsck</td>
+            </tr>
+        </table></p>
+
+         1.¿Qué función cumple el mecanismo de Journaling en un sistema de archivos?</p>
+        <label> <input type="radio" name="p1" value="a">Combina varios discos para mejorar rendimiento</label> <br>
+        <label> <input type="radio" name="p1" value="b">Registra operaciones antes de realizarlas para recuperarlas en caso de falla </label> <br>
+        <label> <input type="radio" name="p1" value="c">Duplica información importante en otro dispositivo</label> <br>
+
+        <p>2.¿Cuál de los siguientes mecanismos corresponde a la verificación de integridad?</p>
+        <label> <input type="radio" name="p2" value="a">Herramientas como CHKDSK y fsck</label> <br>
+        <label> <input type="radio" name="p2" value="b">RAID</label> <br>
+        <label> <input type="radio" name="p2" value="c">Copias de seguridad</label> <br>
+        
+        <p>3.¿Cuál es el objetivo principal de RAID?</p>
+        <label> <input type="radio" name="p3" value="a">Detectar errores en archivos</label> <br>
+        <label> <input type="radio" name="p3" value="b">Combinar varios discos para mejorar rendimiento y seguridad </label> <br>
+        <label> <input type="radio" name="p3" value ="c">Registrar operaciones pendientes</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado28"></h3>
+    </div>
+    <div id="concepto3" class="contenido">
+        <h2>CONCEPTO Y OBJETIVOS DE PROTECCION Y SEGURIDAD</h2>
+        <form id="test29">
+        <p>La protección y seguridad informática son mecanismos utilizados para proteger sistemas, información y recursos contra accesos no autorizados, daños o pérdidas. <br>
+        
+    <b>La Proteccion</b> Se enfoca en controlar acceso interno entre usuarios y procesos.La protección evita que un usuario o programa realice operaciones para las cuales no tiene autorización. Por ejemplo, impide que un usuario común modifique archivos críticos del sistema operativo. <br>
+
+La protección es importante porque en un sistema multiusuario varios usuarios pueden utilizar simultáneamente los mismos recursos. <br> 
+La seguridad informática es el conjunto de políticas, procedimientos, técnicas y herramientas utilizadas para proteger sistemas computacionales frente a amenazas internas y externas. <br>
+<b>Objetivos:</b> <br>
+<b>- Confidencialidad: </b> Solo personas autorizadas acceden a información. <br>
+<b>- Integridad: </b>Los datos no deben alterarse incorrectamente. <br>
+<b>- Disponibilidad: </b>La información debe estar accesible cuando se necesite. <br>
+<b>-Autenticación: </b>Verificar identidad de usuarios. <br>
+<b>- Control de acceso:</b>Asignar permisos específicos. <br>
+</p>
+
+ 1.¿Cuál es el objetivo de la protección en un sistema operativo?</p>
+        <label> <input type="radio" name="p1" value="a"> Controlar acceso interno entre usuarios y procesos </label> <br>
+        <label> <input type="radio" name="p1" value="b">Implementar políticas externas de seguridad </label> <br>
+        <label> <input type="radio" name="p1" value="c">Ejecutar programas más rápido</label> <br>
+
+        <p>2.¿Cuál de los siguientes es un objetivo de la seguridad informática?</p>
+        <label> <input type="radio" name="p2" value="a"> Reducir fragmentación de archivos</label> <br>
+        <label> <input type="radio" name="p2" value="b">Confidencialidad: solo personas autorizadas acceden a la información</label> <br>
+        <label> <input type="radio" name="p2" value="c">Mejorar velocidad de acceso a disco</label> <br>
+        
+        <p>3.¿Qué diferencia principal existe entre protección y seguridad informática?</p>
+        <label> <input type="radio" name="p3" value="a">La protección se centra en accesos internos, mientras que la seguridad abarca amenazas internas y externas</label> <br>
+        <label> <input type="radio" name="p3" value="b">La protección solo aplica a sistemas multiusuario y la seguridad a sistemas monousuario </label> <br>
+        <label> <input type="radio" name="p3" value ="c">La protección administra permisos y la seguridad organiza carpetas</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado29"></h3>
+    </div>
+    <div id="seguridad" class="contenido">
+        <h2>CLASIFICACIÓN APLICADA A LA SEGURIDAD</h2>
+        <form id="test30">
+        <p>La seguridad informática puede clasificarse de distintas maneras según el área que protege o el tipo de amenaza que enfrenta. <br>
+        <b>Seguridad física;</b> Protege los omponentes materiales del sistema infomático. Incluye: Computadoras, servidores, centros de datos, etc. <br>
+    <b>Seguridad lógica: </b>La seguridad logica se enfoca en proteger software, sistemas operativos, redes, información digital. <br>
+     Este objetivo se cumple en base a: Contraseñas, antivirus, firewalls, cifrados,entre otros. <br>
+    <b>Seguridad activa: </b>Son mecanismos preventivos que intentan evitar ataques antes de que ocurran. Ejemplos: antivirus, sistemas de autenticación. <br>
+<b>Seguridad perimetral: </b>Protege los limites de la red empresarial.
+<b>Seuridad de la nube: </b> Protege datos y servicios almacenados en plataformas cloud</p>
+
+
+ 1.¿Qué protege la seguridad física dentro de un sistema informático?</p>
+        <label> <input type="radio" name="p1" value="a">Software y redes</label> <br>
+        <label> <input type="radio" name="p1" value="b">Componentes materiales como computadoras y servidores</label> <br>
+        <label> <input type="radio" name="p1" value="c">Contraseñas y cifrados</label> <br>
+
+        <p>2.¿Cuál de los siguientes mecanismos corresponde a la seguridad activa?</p>
+        <label> <input type="radio" name="p2" value="a">Antivirus y sistemas de autenticación </label> <br>
+        <label> <input type="radio" name="p2" value="b">Copias de seguridad</label> <br>
+        <label> <input type="radio" name="p2" value="c">Firewalls perimetrales</label> <br>
+        
+        <p>3.¿Qué caracteriza a la seguridad lógica?</p>
+        <label> <input type="radio" name="p3" value="a">Protege datos y servicios en la nube</label> <br>
+        <label> <input type="radio" name="p3" value="b">Se enfoca en proteger software, sistemas operativos y redes</label> <br>
+        <label> <input type="radio" name="p3" value ="c"> Protege los límites de la red empresarial</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado30"></h3>
+    </div>
+    <div id="sproteccion" class="contenido">
+        <h2>FUNCIONES DEL SISTEMA DE PROTECCIÓN</h2>
+        <form id="test31">
+        <p>Control de acceso que hace referencia a las caracteristicas de seguridad que controlan quien puede obtener acceso a los recursos de un sistema operativo. Las aplicaciones llaman a las funciones de control de acceso para establecer quien puede obtener acceso a los recursos especificos o controlar el acceso a los recursos proporcionados por la aplicacion.
+Un sistema de proteccion debera tener la flexibilidad suficiente para poder imponer una diversidad de politicas y mecanismos.
+Existen varios mecanismos que pueden usarse para asegurar los archivos, segmentos de memoria, CPU, y otros recursos administrados por el Sistema Operativo.
+Por ejemplo, el direccionamiento de memoria asegura que unos procesos puedan ejecutarse solo dentro de sus propios espacios de direccion. El timer asegura que los procesos no obtengan el control de la CPU en forma indefinida.
+La proteccion se refiere a los mecanismos para controlar el acceso de programas, procesos, o usuarios a los recursos definidos por un sistema de computacion. Seguridad es la serie de problemas relativos a asegurar la integridad del sistema y sus datos.
+Hay importantes razones para proveer proteccion. La mas obvia es la necesidad de prevenirse de violaciones intencionales de acceso por un usuario. Otras de importancia son, la necesidad de asegurar que cada componente de un programa, use solo los recursos del sistema de acuerdo con las politicas fijadas para el uso de esos recursos.
+Un recurso desprotegido no puede defenderse contra el uso no autorizado o de un usuario incompetente. Los sistemas orientados a la proteccion proveen maneras de distinguir entre uso autorizado y desautorizado.</p>
+  
+1.¿Qué asegura el direccionamiento de memoria dentro de un sistema de protección?</p>
+        <label> <input type="radio" name="p1" value="a">Que los procesos solo se ejecuten dentro de sus propios espacios de dirección</label> <br>
+        <label> <input type="radio" name="p1" value="b"> Que los usuarios puedan modificar archivos críticos</label> <br>
+        <label> <input type="radio" name="p1" value="c">Que la CPU se utilice indefinidamente por un proceso</label> <br>
+
+        <p>2.¿Cuál es la función principal del timer en el sistema de protección?</p>
+        <label> <input type="radio" name="p2" value="a">Controlar permisos de acceso</label> <br>
+        <label> <input type="radio" name="p2" value="b">Evitar que un proceso obtenga el control indefinido de la CPU </label> <br>
+        <label> <input type="radio" name="p2" value="c">Restaurar información ante fallos</label> <br>
+        
+        <p>3.¿Por qué es importante proveer protección en un sistema operativo?</p>
+        <label> <input type="radio" name="p3" value="a">Para distinguir entre uso autorizado y no autorizado</label> <br>
+        <label> <input type="radio" name="p3" value="b">Para mejorar la velocidad de acceso a disco</label> <br>
+        <label> <input type="radio" name="p3" value ="c">Para organizar archivos en carpetas jerárquicas</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado31"></h3>
+</div>
+    <div id="implantacion" class="contenido">
+        <h2>IMPLANTACIÓN DE MATRICES DE ACCESO</h2>
+        <form id="test32">
+        <p>
+           Las matrices de acceso son modelos utilizados para representar y controlar los permisos de acceso sobre recursos del sistema. Constituyen una forma organizada de especificar qué usuarios pueden realizar determinadas operaciones sobre archivos, dispositivos o procesos. <br>
+
+En una matriz de acceso, las filas representan usuarios o procesos y las columnas representan recursos del sistema. Cada celda contiene los permisos permitidos. <br>
+
+Por ejemplo, un usuario puede tener permiso de lectura sobre un archivo, mientras que otro usuario puede tener permisos de lectura y escritura. <br>
+
+Los permisos más comunes son lectura, escritura, ejecución y eliminación. Algunos sistemas también permiten permisos más específicos como compartir, modificar atributos o administrar recursos. <br>
+
+Las listas de control de acceso, conocidas como ACL, son una implementación práctica de las matrices de acceso. Cada archivo almacena una lista de usuarios autorizados y los permisos correspondientes. <br>
+
+Otro método son las capacidades, donde cada usuario almacena una lista de recursos a los cuales tiene acceso. <br>
+
+En sistemas Linux se utilizan bits de protección para representar permisos. Estos bits indican si un archivo puede ser leído, escrito o ejecutado por el propietario, el grupo o el resto de usuarios. <br>
+
+Las matrices de acceso proporcionan mayor organización y control sobre la seguridad del sistema. Sin embargo, en sistemas muy grandes pueden volverse complejas de administrar debido al gran número de usuarios y recursos. <br>
+        </p>
+
+
+        1.¿Qué representan las filas y columnas en una matriz de acceso?</p>
+        <label> <input type="radio" name="p1" value="a">Filas = recursos, columnas = usuarios</label> <br>
+        <label> <input type="radio" name="p1" value="b">Filas = usuarios o procesos, columnas = recursos</label> <br>
+        <label> <input type="radio" name="p1" value="c"> Filas = permisos, columnas = archivos</label> <br>
+
+        <p>2.¿Cuál de los siguientes es un ejemplo de implementación práctica de las matrices de acceso?</p>
+        <label> <input type="radio" name="p2" value="a">Bits de protección en Linux</label> <br>
+        <label> <input type="radio" name="p2" value="b">Listas de control de acceso (ACL) </label> <br>
+        <label> <input type="radio" name="p2" value="c"> Fragmentación de archivos</label> <br>
+        
+        <p>3.¿Qué permisos básicos suelen incluir las matrices de acceso?</p>
+        <label> <input type="radio" name="p3" value="a"> Lectura, escritura, ejecución y eliminación</label> <br>
+        <label> <input type="radio" name="p3" value="b">Copias de seguridad y recuperación</label> <br>
+        <label> <input type="radio" name="p3" value ="c">Antivirus y firewalls</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado32"></h3>
+    </div>
+    <div id="proteccion" class="contenido">
+        <h2>PROTECCIÓN BASADA EN EL LENGUAJE</h2>
+        <form id="test33">
+        <p>La especificación de protección en un lenguaje de programación permite la descripción de alto nivel de políticas para la asignación y uso de recursos. <br>
+ las políticas para el uso de recursos también podrían variar, dependiendo de la aplicación, y podrían cambiar con el tiempo. Por estas razones, la protección ya no puede considerarse como un asunto que sólo concierne al diseñador de un sistema operativo; también debe estar disponible como herramienta que el diseñador de aplicaciones pueda usar para proteger los recursos de un subsistema de aplicación contra intervenciones o errores. <br>
+Aquí es donde los lenguajes de programación entran en escena. Especificar el control de acceso deseado a un recurso compartido en un sistema es hacer una declaración acerca del recurso. Este tipo de declaración se puede integrar en un lenguaje mediante una extensión de su mecanismo de tipificación. Si se declara la protección junto con la tipificación de los datos, el diseñado de cada subsistema puede especificar sus necesidades de protección así debería darse directamente durante la redacción del programa, y en el lenguaje en el que el programa mismo se expresa. <br>
+</p>
+<img src="img/tema6.5.png" class="imagen">
+ 1.¿Qué permite la protección basada en el lenguaje dentro de un programa?</p>
+        <label> <input type="radio" name="p1" value="a">Describir políticas de asignación y uso de recursos en alto nivel</label> <br>
+        <label> <input type="radio" name="p1" value="b">Ejecutar procesos más rápido en la CPU</label> <br>
+        <label> <input type="radio" name="p1" value="c"> Organizar archivos en carpetas jerárquicas</label> <br>
+
+        <p>2.¿Por qué la protección no debe considerarse solo un asunto del diseñador del sistema operativo?</p>
+        <label> <input type="radio" name="p2" value="a">Porque también debe estar disponible para que los diseñadores de aplicaciones protejan recursos</label> <br>
+        <label> <input type="radio" name="p2" value="b">Porque únicamente se aplica en sistemas monousuario </label> <br>
+        <label> <input type="radio" name="p2" value="c">Porque solo controla accesos físicos</label> <br>
+        
+        <p>3.¿Cómo puede integrarse la protección en un lenguaje de programación?</p>
+        <label> <input type="radio" name="p3" value="a">Mediante extensiones del mecanismo de tipificación de datos</label> <br>
+        <label> <input type="radio" name="p3" value="b">A través de carpetas y rutas absolutas</label> <br>
+        <label> <input type="radio" name="p3" value ="c"> Usando únicamente firewalls y antivirus</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado33"></h3>
+    </div>
+    <div id="validacion" class="contenido">
+        <h2>VALIDACIÓN Y AMENAZAS DEL SISTEMA</h2>
+        <form id="test34">
+        <p>La validación es el proceso mediante el cual el sistema verifica que usuarios, datos y operaciones sean correctos y legítimos.<br>
+
+Uno de los métodos más comunes de validación es el uso de contraseñas. Aunque son ampliamente utilizadas, presentan problemas cuando los usuarios utilizan claves débiles o repetidas.<br>
+
+La biometría utiliza características físicas como huellas digitales, reconocimiento facial o escaneo de iris para validar identidades.<br>
+
+Los tokens generan códigos temporales que aumentan la seguridad de autenticación.<br>
+
+La autenticación multifactor combina varios métodos simultáneamente, como contraseña y código enviado al teléfono móvil.<br>
+
+Las amenazas informáticas son situaciones o acciones capaces de dañar sistemas o comprometer información.<br>
+
+El malware es software diseñado para causar daño. Existen varios tipos de malware.<br>
+
+Los virus infectan archivos y se replican propagándose a otros sistemas.<br>
+
+Los gusanos se propagan automáticamente a través de redes sin necesidad de intervención del usuario. <br>
+
+Los troyanos aparentan ser programas legítimos pero contienen funciones maliciosas ocultas. <br>
+
+El spyware recopila información del usuario sin consentimiento. <br>
+
+El ransomware secuestra archivos y exige pagos para recuperarlos. <br>
+
+El phishing es una técnica de engaño utilizada para robar información confidencial mediante correos falsos o sitios web clonados. <br>
+
+Los ataques DoS y DDoS buscan saturar servidores o servicios para impedir su funcionamiento normal. <br>
+
+La ingeniería social consiste en manipular psicológicamente a las personas para obtener información sensible. <br>
+
+Las amenazas internas provienen de empleados o usuarios autorizados que hacen uso indebido de recursos. <br>
+
+Las consecuencias de ataques informáticos incluyen robo de información, pérdidas económicas, interrupción de servicios y daño reputacional.</p>
+   
+1.¿Cuál es uno de los métodos más comunes de validación en sistemas informáticos?</p>
+<img src="img/tema6.6.png" class="imagen">
+        <label> <input type="radio" name="p1" value="a">Contraseñas</label> <br>
+        <label> <input type="radio" name="p1" value="b">Ingenieria social</label> <br>
+        <label> <input type="radio" name="p1" value="c">Rutas absolutas</label> <br>
+
+        <p>2.¿Qué tipo de malware se propaga automáticamente a través de redes sin intervención del usuario?</p>
+        <label> <input type="radio" name="p2" value="a">Virus</label> <br>
+        <label> <input type="radio" name="p2" value="b">Gusanos </label> <br>
+        <label> <input type="radio" name="p2" value="c">Troyanos</label> <br>
+        
+        <p>3.¿Cuál es una consecuencia de los ataques informáticos mencionada en el texto?</p>
+        <label> <input type="radio" name="p3" value="a">Mejora en la velocidad de acceso a disco</label> <br>
+        <label> <input type="radio" name="p3" value="b">Robo de información y pérdidas económicas</label> <br>
+        <label> <input type="radio" name="p3" value ="c">Organización jerárquica de archivos</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado34"></h3>
+</div>
+    <div id="cifrado" class="contenido">
+        <h2>CIFRADO</h2>
+        <form id="test35">
+        <p>El cifrado es un método que permite aumentar la seguridad de un mensaje o de un archivo mediante la codificación del contenido, de manera que sólo pueda leerlo la persona que cuente con la clave de cifrado adecuada para descodificarlo. Por ejemplo, si realiza una compra a través de Internet, la información de la transacción (como su dirección, número de teléfono y número de tarjeta de crédito) suele cifrarse a fin de mantenerla a salvo. Use el cifrado cuando desee un alto nivel de protección de la información. <br>
+        <b>Métodos y Técnicas de Cifrado:</b><br>
+   <b>Cifrado de sustitución: </b>El cifrado de sustitución consiste en reemplazar una o más entidades (generalmente letras) de un mensaje por una o más entidades diferentes. <br>
+Existen varios tipos de criptosistemas de sustitución: <br>
+• La sustitución monoalfabética consiste en reemplazar cada una de las letras del mensaje por otra letra del alfabeto. <br>
+• La sustitución polialfabética consiste en utilizar una serie de cifrados monoalfabéticos que son re-utilizados periódicamente. <br>
+• La sustitución homófona hace posible que cada una de las letras del mensaje del texto plano se corresponda con un posible grupo de caracteres distintos. <br>
+• La sustitución poligráfica consiste en reemplazar un grupo de caracteres en un mensaje por otro grupo de caracteres. <br>
+<b>Cifrado Transposición: </b> El método de cifrado por transposición consiste en reordenar datos para cifrarlos a fin de hacerlos ininteligibles. Esto puede significar, por ejemplo, reordenar los datos geométricamente para hacerlos visualmente inutilizables. <br>
+<b>El cifrado Simétrico: </b>El cifrado simétrico (también conocido como cifrado de clave privada o cifrado de clave secreta) consiste en utilizar la misma clave para el cifrado y el descifrado.
+El cifrado consiste en aplicar una operación (un algoritmo) a los datos que se desea cifrar utilizando la clave privada para hacerlos ininteligibles. El algoritmo más simple (como un OR exclusivo) puede lograr que un sistema prácticamente a prueba de falsificaciones. <br>
+<b>El cifrado asimétrico:</b>El cifrado asimétrico (también conocido como cifrado con clave pública). En un criptosistema asimétrico (o criptosistema de clave pública), las claves se dan en pares: <br>
+• Una clave pública para el cifrado. <br>
+• Una clave secreta para el descifrado. <br>
+1.¿Qué caracteriza al cifrado simétrico?</p>
+<img src="img/tema6.7.png" class="imagen">
+<link rel="stylesheet" href="https://cpahispano.com/lander?oref=https%3A%2F%2Fwww.bing.com%2F">
+        <label> <input type="radio" name="p1" value="a">Utiliza una clave pública para cifrar y otra privada para descifrar</label> <br>
+        <label> <input type="radio" name="p1" value="b">Usa la misma clave para cifrar y descifrar </label> <br>
+        <label> <input type="radio" name="p1" value="c"> Reordena los datos para hacerlos ininteligibles</label> <br>
+
+        <p>2.¿Cuál de los siguientes métodos corresponde al cifrado por transposición?</p>
+        <label> <input type="radio" name="p2" value="a">Reemplazar letras por otras del alfabeto</label> <br>
+        <label> <input type="radio" name="p2" value="b">Reordenar datos para hacerlos ininteligibles </label> <br>
+        <label> <input type="radio" name="p2" value="c">Usar claves en pares (pública y privada)</label> <br>
+        
+        <p>3.¿Qué tipo de cifrado utiliza pares de claves (pública y privada)?</p>
+        <label> <input type="radio" name="p3" value="a">Cifrado asimétrico</label> <br>
+        <label> <input type="radio" name="p3" value="b">Cifrado simétrico</label> <br>
+        <label> <input type="radio" name="p3" value ="c"> Cifrado poligráfico</label> <br>
+        
+        <br>
+        <button type="submit">Enviar</button>
+        
+        </form>
+        
+        <h3 id="resultado35"></h3>
+
+</p>
+    </div>
+      </div>  
+<script src="js/Cuestionarios.js"></script>
+   </body>
+</html>
